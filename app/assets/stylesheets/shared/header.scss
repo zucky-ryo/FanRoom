@@ -2,9 +2,14 @@ header {
   width: 100vw;
   height: 110px;
   background-color: lightgreen;
+  position: fixed;
   a{
     text-decoration: none;
   }
+}
+
+.header-height {
+  height: 110px;
 }
 
 .header-top {
