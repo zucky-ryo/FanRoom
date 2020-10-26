@@ -1,0 +1,123 @@
+.title-contents {
+  width: 100vw;
+  height: 60vh;
+  background-image: image-url('back-ground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  h1 {
+    margin: 0 0 30px 10px;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  p {
+    margin: 0 0 5px 10px;
+    font-size: 25px;
+    line-height: 40px;
+  }
+}
+
+.my-room-title {
+  width: 100vw;
+  height: 10vh;
+  display: block;
+  text-align: center;
+  line-height: 10vh;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  background-color: blue;
+}
+
+.my-room {
+  display: flex;
+}
+
+.my-private-room {
+  width: 50vw;
+  background-color: lightcyan;
+  border-right: solid black 1px;
+}
+
+.my-private-title {
+  height: 8vh;
+  display: block;
+  text-align: center;
+  line-height: 8vh;
+  font-size: 25px;
+  background-color: lightblue;
+}
+
+.my-private-lists {
+  margin-top: 10px;
+}
+
+.my-private-list {
+  margin: 0 10px 10px 10px;
+  background-color: white;
+  border: solid gray 1px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.my-open-room {
+  width: 50vw;
+  background-color: lightcyan;
+  border-left: solid black 1px;
+}
+
+.my-open-title {
+  height: 8vh;
+  display: block;
+  text-align: center;
+  line-height: 8vh;
+  font-size: 25px;
+  background-color: lightblue;
+}
+
+.my-open-lists {
+  margin-top: 10px;
+}
+
+.my-open-list {
+  margin: 0 10px 10px 10px;
+  background-color: white;
+  border: solid gray 1px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.my-room-name {
+  padding: 10px;
+  margin: 2px 0 0 10px;
+  font-size: 20px;
+  color: black;
+}
+
+.my-room-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-room-member{
+  color: black;
+  margin: 0 0 5px 20px;
+}
+
+.my-room-at {
+  color: black;
+  margin: 0 20px 5px 0;
+}
+
+.my-member-icon {
+  margin-right: 5px;
+}

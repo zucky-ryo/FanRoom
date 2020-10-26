@@ -1,0 +1,25 @@
+footer {
+  height: 70px;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  position: relative;
+  padding: 10px;
+  margin-right: 140px;
+  img {
+    height: 40px;
+  }
+  span {
+    font-weight: bold;
+    font-family: 'Bangers', cursive;
+    color: white;
+    position: absolute;
+    top: 6px;
+    line-height: 50px;
+    font-size: 30px;
+  }
+}
