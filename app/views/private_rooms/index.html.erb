@@ -1,1 +1,61 @@
-<h1>おはよう</h1>
+<%= render "shared/header" %>
+
+<div class="title-contents">
+  <h1>プロ野球ファンが集まるチャットアプリ</h1>
+  <p>公開チャットルームに参加してプロ野球について語ろう！</p>
+  <p>お気に入りの画像や動画を投稿しよう！</p>
+</div>
+
+<h2 class="my-room-title">参加チャットルーム</h2>
+
+<div class="my-room">
+  <div class="my-private-room">
+    <h3 class="my-private-title">プライベートルーム</h3>
+    <div class="my-private-lists">
+      <div class="my-private-list">
+        <a href="">
+          <h4 class="my-room-name">RoomName</h4>
+          <div class="my-room-description">
+            <p class="my-room-member"><i class="fas fa-user-alt my-member-icon"></i>3</p>
+            <p class="my-room-at">2020/10/26</p>
+          </div>
+        </a>
+      </div>
+      <div class="my-private-list">
+        <a href="">
+          <h4 class="my-room-name">RoomName</h4>
+          <div class="my-room-description">
+            <p class="my-room-member"><i class="fas fa-user-alt my-member-icon"></i>3</p>
+            <p class="my-room-at">2020/10/26</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-open-room">
+    <h3 class="my-open-title">公開ルーム</h3>
+    <ul class="my-open-lists">
+      <li class="my-open-list">
+        <a href="">
+          <h4 class="my-room-name">RoomName</h4>
+          <div class="my-room-description">
+            <p class="my-room-member"><i class="fas fa-user-alt my-member-icon"></i>30</p>
+            <p class="my-room-at">2020/10/26</p>
+          </div>
+        </a>
+      </li>
+      <li class="my-open-list">
+        <a href="">
+          <h4 class="my-room-name">RoomName</h4>
+          <div class="my-room-description">
+            <p class="my-room-member"><i class="fas fa-user-alt my-member-icon"></i>30</p>
+            <p class="my-room-at">2020/10/26</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
