@@ -1,0 +1,26 @@
+.second-header {
+  width: 100vw;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgreen;
+}
+
+.second-header-logo {
+  margin-right: 180px;
+  position: relative;
+  img {
+    height: 50px;
+    margin-top: 3px;
+  }
+  span {
+    font-weight: bold;
+    font-family: 'Bangers', cursive;
+    color: blue;
+    position: absolute;
+    top: 5px;
+    line-height: 50px;
+    font-size: 40px;
+  }
+}
