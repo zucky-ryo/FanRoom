@@ -70,16 +70,18 @@
   resize: none;
 }
 
-.input-fan-team-wrap>select {
-  width: 100%;
-  margin-top: 5px;
-  height: 30px;
-  padding-left: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  font-size: 16px;
-  cursor: pointer;
+.input-fan-team-wrap{
+  select {
+    width: 100%;
+    margin-top: 5px;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
 }
 
 .input-default {
@@ -101,6 +103,7 @@
 }
 
 .input-profile {
+  width: 91%;
   margin-top: 5px;
   height: 80px;
   padding: 10px 16px 8px;
