@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+FanTeam.create(team_name: '阪神タイガース')
+FanTeam.create(team_name: '読売ジャイアンツ')
+FanTeam.create(team_name: '中日ドラゴンズ')
+FanTeam.create(team_name: '広島東洋カープ')
+FanTeam.create(team_name: '東京ヤクルトスワローズ')
+FanTeam.create(team_name: '横浜DeNAベイスターズ')
+FanTeam.create(team_name: '福岡ソフトバンクホークス')
+FanTeam.create(team_name: '千葉ロッテマリーンズ')
+FanTeam.create(team_name: '埼玉西武ライオンズ')
+FanTeam.create(team_name: '北海道日本ハムファイターズ')
+FanTeam.create(team_name: '東北楽天ゴールデンイーグルス')
+FanTeam.create(team_name: 'オリックス・バファローズ')
