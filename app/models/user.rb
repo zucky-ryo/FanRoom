@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :fan_team
+
+  validates :nickname, presence: true
 end
