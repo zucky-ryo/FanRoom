@@ -1,0 +1,86 @@
+<%= render "shared/header" %>
+
+<div class="user-show">
+  <div class="user-wrap">
+    <h1 class="user-name">
+      <%= @user.nickname %>
+    </h1>
+    <a href="#" class="user-edit">変更</a>
+  </div>
+  <div class="user-main-wrap">
+    <p class="user-profile">
+      <% if @user.profile == "" %>
+        プロフィールを書いてみよう！
+      <% else %>
+        <%= @user.profile %>
+      <%end%>
+    </p>
+    <div class="user-follow">
+      <p class="following"><span>10</span> フォロー　</p>
+      <p class="follower"><span>10</span> フォロワー</p>
+    </div>
+  </div>
+  <p class="user-birth"><span>誕生日　</span>
+  <% if @user.birthday == nil %>
+    登録されていません
+  <% else %>
+    <%= @user.birthday.strftime("%m月%d日") %>
+  <%end%>
+  </p>
+</div>
+<div class="user-tweets">
+  <h1 class="user-tweets-top">
+    <%= "#{@user.nickname}さんの投稿一覧" %>
+  </h1>
+  <ul class="user-tweets-lists">
+    <li class="user-tweets-list">
+      <div class="tweets-top">
+        <p class="tweets-user">
+          <%= @user.nickname %>
+        </p>
+        <p class="tweets-date">2020/10/20</p>
+      </div>
+      <img src="tate1.jpg" alt="" class="tweets-image">
+      <p class="tweets-text">
+        aaaaaaa
+        aaaaaaaaaaaa
+        aaaaa
+      </p>
+    </li>
+    <li class="user-tweets-list">
+      <div class="tweets-top">
+        <p class="tweets-user">suzuki</p>
+        <p class="tweets-date">2020/10/22</p>
+      </div>
+      <img src="yoko1.jpg" alt="" class="tweets-image">
+      <p class="tweets-text">
+        aaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+      </p>
+    </li>
+    <li class="user-tweets-list">
+      <div class="tweets-top">
+        <p class="tweets-user">yamada</p>
+        <p class="tweets-date">2020/10/24</p>
+      </div>
+      <img src="yoko2.jpg" alt="" class="tweets-image">
+      <p class="tweets-text">
+        aaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaa
+      </p>
+    </li>
+    <li class="user-tweets-list">
+      <div class="tweets-top">
+        <p class="tweets-user">sato</p>
+        <p class="tweets-date">2020/10/26</p>
+      </div>
+      <img src="tate2.jpg" alt="" class="tweets-image">
+      <p class="tweets-text">
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+      </p>
+    </li>
+  </ul>
+</div>
+
+<%= render "shared/footer" %>
