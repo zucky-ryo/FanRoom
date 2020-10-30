@@ -1,11 +1,14 @@
 <%= render "shared/header" %>
 
+<%# 画面上部ユーザー情報部分 %>
 <div class="user-show">
   <div class="user-wrap">
     <h1 class="user-name">
       <%= @user.nickname %>
     </h1>
-    <a href="#" class="user-edit">変更</a>
+    <% if current_user == @user %>
+      <%= link_to '変更', edit_user_registration_path, class: "user-edit" %>
+    <% end %>
   </div>
   <div class="user-main-wrap">
     <p class="user-profile">
@@ -20,14 +23,19 @@
       <p class="follower"><span>10</span> フォロワー</p>
     </div>
   </div>
+  <p class="user-fan-team"><span>ファンチーム　</span>
+    <%= @user.fan_team.team_name %>
+  </p>
   <p class="user-birth"><span>誕生日　</span>
-  <% if @user.birthday == nil %>
-    登録されていません
-  <% else %>
-    <%= @user.birthday.strftime("%m月%d日") %>
-  <%end%>
+    <% if @user.birthday == nil %>
+      登録されていません
+    <% else %>
+      <%= @user.birthday.strftime("%m月%d日") %>
+    <%end%>
   </p>
 </div>
+
+<%# ユーザーの投稿一覧部分 %>
 <div class="user-tweets">
   <h1 class="user-tweets-top">
     <%= "#{@user.nickname}さんの投稿一覧" %>

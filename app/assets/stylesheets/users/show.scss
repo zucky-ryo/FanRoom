@@ -22,6 +22,7 @@
 .user-edit {
   width: 70px;
   margin: 0 15px 20px 0;
+  display: block;
   background: rgb(0, 162, 255);
   text-decoration: none;
   border-radius: 8px;
@@ -66,8 +67,18 @@
   }
 }
 
+.user-fan-team {
+  padding: 15px 0 10px 0;
+  font-size: 20px;
+  color: navy;
+  font-weight: bold;
+  span {
+    color: green;
+  }
+}
+
 .user-birth {
-  padding: 15px 0 20px 0;
+  padding: 10px 0 10px 0;
   font-size: 17px;
   color: orangered;
   span {
