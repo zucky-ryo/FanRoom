@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
 
+<%# 画面上部ユーザー情報部分 %>
 <div class="user-show">
   <div class="user-wrap">
     <h1 class="user-name">
@@ -33,6 +34,8 @@
     <%end%>
   </p>
 </div>
+
+<%# ユーザーの投稿一覧部分 %>
 <div class="user-tweets">
   <h1 class="user-tweets-top">
     <%= "#{@user.nickname}さんの投稿一覧" %>

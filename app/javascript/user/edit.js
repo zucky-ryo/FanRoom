@@ -1,3 +1,4 @@
+// ユーザー編集でemailやpasswordを変更したい時だけフォームを表示する
 $(function(){
   const urlPath = location.pathname;
   if (urlPath.match(/users/)) {

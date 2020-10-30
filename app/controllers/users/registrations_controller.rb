@@ -39,7 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-
+  # emailとpassword以外を編集するとき、それを入力せずに保存できるようにする
   def update_resource(resource, params)
     if params[:password] == nil && params[:password_confirmation] == nil && params[:current_password] == nil
       resource.update_without_password(params)
@@ -47,9 +47,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       resource.update_with_password(params)
     end
   end
-
+  
+  # ユーザー編集後、マイページに遷移させる
   def after_update_path_for(resource)
-    user_path(@user.id)
+    user_path(current_user.id)
   end
 
   # If you have extra params to permit, append them to the sanitizer.

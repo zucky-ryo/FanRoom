@@ -1,14 +1,16 @@
 <%= render "shared/header" %>
 
+<%# 画面上部のタイトル部分 %>
 <div class="title-contents">
   <h1>プロ野球ファンが集まるチャットアプリ</h1>
   <p>公開チャットルームに参加してプロ野球について語ろう！</p>
   <p>お気に入りの画像や動画を投稿しよう！</p>
 </div>
 
+<%# 参加チャットルーム一覧部分 %>
 <h2 class="my-room-title">参加チャットルーム</h2>
-
 <div class="my-room">
+  <%# 参加プライベートルーム部分 %>
   <div class="my-private-room">
     <h3 class="my-private-title">プライベートルーム</h3>
     <div class="my-private-lists">
@@ -32,7 +34,7 @@
       </div>
     </div>
   </div>
-
+  <%# 参加オープンルーム部分 %>
   <div class="my-open-room">
     <h3 class="my-open-title">公開ルーム</h3>
     <ul class="my-open-lists">
