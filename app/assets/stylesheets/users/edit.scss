@@ -1,0 +1,65 @@
+.edit-form-wrap {
+  width: 60%;
+  background-color: white;
+}
+
+.user-update-btn {
+  width: 50%;
+  margin: 30px auto 0;
+}
+
+.registration-destroy {
+  width: 100vw;
+  min-width: 800px;
+  height: 100%;
+  background-color: lemonchiffon;
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrap {
+  width: 60%;
+  background-color: white;
+  padding-bottom: 30px;
+}
+
+.destroy-btn {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.destroy-red-btn {
+  width: 100%;
+  background: red;
+  border: 1px solid red;
+  color: #fff;
+  line-height: 48px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.edit-back-btn {
+  width: 100%;
+  margin: 12px 0 30px 0;
+  background: green;
+  border: 1px solid green;
+  color: white;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.edit-detail-btn {
+  width: 60%;
+  padding-top: 15px;
+  margin: 0 auto;
+  text-align: center;
+  color: red;
+  cursor: pointer;
+}
+
+.user-edit-detail {
+}

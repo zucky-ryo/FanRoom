@@ -1,43 +1,74 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render "shared/second-header"%>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put , class: 'registration-main' }) do |f| %>
+<div class='edit-form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      ユーザー情報編集
+    </h1>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <%= render 'shared/error_messages', model: resource %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ニックネーム</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :nickname, class:"input-nickname", id:"nickname", placeholder:"例) baseball太郎", maxlength:"40", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ファンチーム</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <div class="input-fan-team-wrap">
+      <%= f.collection_select :fan_team_id, FanTeam.all, :id, :team_name, include_blank: "--", class:"input-fan-team", id:"fan-team" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">プロフィール</label>
+      <span class="indispensable-not">任意</span>
+    </div>
+    <%= f.text_area :profile, class:"input-profile", id:"profile", placeholder:"好きなチームやあなた自身のことを書いてみましょう！" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">生年月日</label>
+      <span class="indispensable-not">任意</span>
+    </div>
+    <div class='input-birth-wrap'>
+      <%= raw sprintf(
+                  f.date_select(
+                    :birthday,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1930,
+                    end_year: (Time.now.year),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  <p class="edit-detail-btn" id="detail-btn">メールアドレス及びパスワードを変更する</p>
+  <div class="user-edit-detail" id="edit-detail"></div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class='user-update-btn'>
+    <%= f.submit "更新する" ,class:"register-blue-btn" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+</div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<div class="registration-destroy">
+  <div class='form-wrap'>
+    <div class="destroy-btn">
+      <%= link_to "マイページに戻る", :back, class: "edit-back-btn" %>
+      <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか？" }, method: :delete, class: "destroy-red-btn" %>
+    </div>
+  </div>
+</div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= render "shared/second-footer"%>
