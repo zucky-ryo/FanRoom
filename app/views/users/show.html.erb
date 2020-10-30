@@ -22,12 +22,15 @@
       <p class="follower"><span>10</span> フォロワー</p>
     </div>
   </div>
+  <p class="user-fan-team"><span>ファンチーム　</span>
+    <%= @user.fan_team.team_name %>
+  </p>
   <p class="user-birth"><span>誕生日　</span>
-  <% if @user.birthday == nil %>
-    登録されていません
-  <% else %>
-    <%= @user.birthday.strftime("%m月%d日") %>
-  <%end%>
+    <% if @user.birthday == nil %>
+      登録されていません
+    <% else %>
+      <%= @user.birthday.strftime("%m月%d日") %>
+    <%end%>
   </p>
 </div>
 <div class="user-tweets">
