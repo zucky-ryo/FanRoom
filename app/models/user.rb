@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   # フォロー解除時のメソッド
   def unfollow(other_user)
-    following_user = self.relationships.find(follow_id: other_user.id)
+    following_user = self.relationships.find_by(follow_id: other_user.id)
     following_user.destroy if following_user
   end
 

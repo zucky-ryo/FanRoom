@@ -1,10 +1,10 @@
 <% if current_user.following?(user) %>
-  <%= form_with model: current_user.relationships.find(follow_id: user.id), method: :delete do |f| %>
+  <%= form_with model: current_user.relationships.find_by(user_id: current_user.id, follow_id: user.id), url: relationship_path(user.id), method: :delete, local: true do |f| %>
     <%= hidden_field_tag :follow_id, user.id %>
     <%= f.submit "フォロー解除", class: "unfollow-btn" %>
   <% end %>
 <% else %>
-  <%= form_with model: current_user.relationships.build do |f| %>
+  <%= form_with model: current_user.relationships.build, url: relationships_path, local: true do |f| %>
     <%= hidden_field_tag :follow_id, user.id %>
     <%= f.submit "フォローする", class: "follow-btn" %>
   <% end %>
