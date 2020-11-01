@@ -21,8 +21,14 @@
       <%end%>
     </p>
     <div class="user-follow">
-      <p class="following"><span id="user-followings"><%= @user.followings.length %></span> フォロー　</p>
-      <p class="follower"><span id="user-followers"><%= @user.followers.length %></span> フォロワー</p>
+      <p class="following" id="following-user"><span id="user-followings"><%= @user.followings.length %></span> フォロー　</p>
+      <p class="follower" id="follower-user"><span id="user-followers"><%= @user.followers.length %></span> フォロワー</p>
+      <div class="following-lists" id="user-following-lists">
+        <%= render partial: 'relationships/following', collection: @followings %>
+      </div>
+      <div class="follower-lists" id="user-follower-lists">
+        <%= render partial: 'relationships/follower', collection: @followers %>
+      </div>
     </div>
   </div>
   <p class="user-fan-team"><span>ファンチーム　</span>
