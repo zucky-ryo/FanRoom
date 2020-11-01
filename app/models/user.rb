@@ -6,10 +6,10 @@ class User < ApplicationRecord
   belongs_to :fan_team
   # こちらからフォローしているユーザー（中間テーブルとUsersテーブル）
   has_many :relationships
-  has_many :followings, through: :relationships, source: :follow
+  has_many :followings, through: :relationships, source: :follow, dependent: :destroy
   # フォローされているユーザー（中間テーブルとUsersテーブル）
   has_many :reverse_relationships, class_name: "Relationship", foreign_key: "follow_id"
-  has_many :followers, through: :reverse_relationships, source: :user
+  has_many :followers, through: :reverse_relationships, source: :user, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
