@@ -1,13 +1,29 @@
 .unfollow-btn {
-  width: 200px;
+  width: 180px;
   margin: 0 15px 20px 0;
   display: block;
+  background: rgb(255, 77, 107);
+  border: solid rgb(255, 77, 107) 1px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 46px;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.follow-reverse {
+  width: 180px;
+  margin: 0 15px 20px 0;
+  display: none;
   background: rgb(0, 162, 255);
   border: solid rgb(0, 162, 255) 1px;
   border-radius: 8px;
   color: #fff;
+  text-decoration: none;
   text-align: center;
-  line-height: 48px;
+  line-height: 46px;
   font-size: 23px;
   cursor: pointer;
 }
@@ -20,6 +36,22 @@
   border: solid rgb(0, 162, 255) 1px;
   border-radius: 8px;
   color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 46px;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.unfollow-reverse {
+  width: 180px;
+  margin: 0 15px 20px 0;
+  display: none;
+  background: rgb(255, 77, 107);
+  border: solid rgb(255, 77, 107) 1px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
   text-align: center;
   line-height: 46px;
   font-size: 23px;

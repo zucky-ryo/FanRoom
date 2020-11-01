@@ -1,21 +1,17 @@
 class RelationshipsController < ApplicationController
-  before_action :set_user
-
   def create
+    @user = User.find(params[:format])
     following = current_user.follow(@user)
     following.save
-    redirect_to user_path(@user.id)
+    render json: [id: @user.id]
   end
 
   def destroy
+    @user = User.find(params[:id])
     unfollowing = current_user.unfollow(@user)
-    unfollowing.destroy
-    redirect_to user_path(@user.id)
-  end
-
-  private
-
-  def set_user
-    @user = User.find(params[:follow_id])
+    unless unfollowing == nil
+      unfollowing.destroy
+    end
+    render json: [id: @user.id]
   end
 end
