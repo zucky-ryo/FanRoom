@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  validates :nickname, presence: true
+  validates :nickname, presence: true, uniqueness: true
 
   belongs_to :fan_team
   # こちらからフォローしているユーザー（中間テーブルとUsersテーブル）
