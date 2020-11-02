@@ -2,6 +2,7 @@
 $(function(){
   const urlPath = location.pathname;
   if (urlPath.match(/users/) && urlPath.match(/\d/)) {
+    $('#header-mypage').css('background', 'yellow');
     const followBtn = $('#follow-button');
     const unfollowBtn = $('#unfollow-button');
     const followers = $('#user-followers');
