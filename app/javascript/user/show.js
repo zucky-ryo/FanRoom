@@ -2,7 +2,6 @@
 $(function(){
   const urlPath = location.pathname;
   if (urlPath.match(/users/) && urlPath.match(/\d/)) {
-    $('#header-mypage').css('background', 'yellow');
     const followBtn = $('#follow-button');
     const unfollowBtn = $('#unfollow-button');
     const followers = $('#user-followers');
@@ -12,6 +11,11 @@ $(function(){
     const followerLists = $('#user-follower-lists');
     const followingUser = $('#following-user');
     const followerUser = $('#follower-user');
+
+    // マイページの時ヘッダーのボタンを光らせる
+    if (currentNameText == $('#user-nickname').text().trim()){
+      $('#header-mypage').css('background', 'yellow');
+    }
 
     // フォローボタンとフォロー解除ボタンを切り替えて、リストに追加・削除する
     followBtn.bind('ajax:success', () => {
