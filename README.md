@@ -26,10 +26,10 @@ belongs_to :fan_team
 
 ## relationshipsテーブル
 
-| Column | Type       | Options                                      |
-| ------ | ---------- | -------------------------------------------- |
-| user   | references | null: false, foreign_key: true               |
-| follow | references | null: false, foreign_key: {to_table: :users} |
+| Column | Type       |Options                                     |
+| ------ | ---------- |--------------------------------------------|
+| user   | references | null: false, foreign_key:true              |
+| follow | references | null: false, foreign_key: {to_table::users}|
 
 ### Association
 

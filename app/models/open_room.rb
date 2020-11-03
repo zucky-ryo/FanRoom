@@ -1,0 +1,2 @@
+class OpenRoom < ApplicationRecord
+end
