@@ -27,6 +27,13 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
+      it '重複したnicknameがある時登録できない' do
+        @user.save
+        user = FactoryBot.build(:user)
+        user.nickname = @user.nickname
+        user.valid?
+        expect(user.errors.full_messages).to include('Nickname has already been taken')
+      end
       it 'fan_team_idが存在しない時登録できない' do
         @user.fan_team_id = nil
         @user.valid?

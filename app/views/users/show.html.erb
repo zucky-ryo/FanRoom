@@ -3,11 +3,13 @@
 <%# 画面上部ユーザー情報部分 %>
 <div class="user-show">
   <div class="user-wrap">
-    <h1 class="user-name">
+    <h1 class="user-name" id="user-nickname">
       <%= @user.nickname %>
     </h1>
     <% if current_user == @user %>
       <%= link_to '変更', edit_user_registration_path, class: "user-edit" %>
+    <% else %>
+      <%= render 'relationships/follow_btn', user: @user %>
     <% end %>
   </div>
   <div class="user-main-wrap">
@@ -19,8 +21,16 @@
       <%end%>
     </p>
     <div class="user-follow">
-      <p class="following"><span>10</span> フォロー　</p>
-      <p class="follower"><span>10</span> フォロワー</p>
+      <p class="following" id="following-user"><span id="user-followings"><%= @user.followings.length %></span> フォロー　</p>
+      <p class="follower" id="follower-user"><span id="user-followers"><%= @user.followers.length %></span> フォロワー</p>
+      <%# フォローフォロワーリスト（デフォルトは非表示） %>
+      <div class="following-lists" id="user-following-lists">
+        <%= render partial: 'relationships/following', collection: @followings %>
+      </div>
+      <div class="follower-lists" id="user-follower-lists">
+        <%= render partial: 'relationships/follower', collection: @followers %>
+      </div>
+      <%#/ フォローフォロワーリスト（デフォルトは非表示） %>
     </div>
   </div>
   <p class="user-fan-team"><span>ファンチーム　</span>
@@ -48,7 +58,7 @@
         </p>
         <p class="tweets-date">2020/10/20</p>
       </div>
-      <img src="tate1.jpg" alt="" class="tweets-image">
+      <img src="" alt="" class="tweets-image">
       <p class="tweets-text">
         aaaaaaa
         aaaaaaaaaaaa
@@ -60,7 +70,7 @@
         <p class="tweets-user">suzuki</p>
         <p class="tweets-date">2020/10/22</p>
       </div>
-      <img src="yoko1.jpg" alt="" class="tweets-image">
+      <img src="" alt="" class="tweets-image">
       <p class="tweets-text">
         aaaaaaaaaaa
         aaaaaaaaaaaaaaaaaa
@@ -71,7 +81,7 @@
         <p class="tweets-user">yamada</p>
         <p class="tweets-date">2020/10/24</p>
       </div>
-      <img src="yoko2.jpg" alt="" class="tweets-image">
+      <img src="" alt="" class="tweets-image">
       <p class="tweets-text">
         aaaaaaaaaaaaaaaaaa
         aaaaaaaaaaa
@@ -82,7 +92,7 @@
         <p class="tweets-user">sato</p>
         <p class="tweets-date">2020/10/26</p>
       </div>
-      <img src="tate2.jpg" alt="" class="tweets-image">
+      <img src="" alt="" class="tweets-image">
       <p class="tweets-text">
         aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         aaaaaaaaaaaaaaaaaa

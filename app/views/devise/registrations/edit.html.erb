@@ -67,7 +67,7 @@
   <div class='form-wrap'>
     <div class="destroy-btn">
       <%= link_to "マイページに戻る", user_path(current_user.id), class: "edit-back-btn" %>
-      <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか？" }, method: :delete, class: "destroy-red-btn" %>
+      <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "この作業は元に戻せません。\r\n本当に削除してよろしいですか？" }, method: :delete, class: "destroy-red-btn" %>
     </div>
   </div>
 </div>
