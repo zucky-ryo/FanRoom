@@ -1,0 +1,2 @@
+class OpenRoomsController < ApplicationController
+end
