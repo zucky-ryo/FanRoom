@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_11_03_053939) do
 
   create_table "open_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

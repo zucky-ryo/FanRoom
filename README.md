@@ -38,9 +38,10 @@ belongs_to :follow, class_name: 'User'
 
 ## open_roomsテーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
+| Column        | Type   | Options     |
+| ------------- | ------ | ----------- |
+| name          | string | null: false |
+| description   | text   | null: false |
 
 ### Association
 
