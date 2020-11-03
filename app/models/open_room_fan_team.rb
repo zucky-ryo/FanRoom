@@ -1,0 +1,2 @@
+class OpenRoomFanTeam < ApplicationRecord
+end

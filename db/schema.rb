@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_053523) do
+ActiveRecord::Schema.define(version: 2020_11_03_053939) do
 
   create_table "fan_teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "team_name", null: false
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2020_11_03_053523) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["open_room_id"], name: "index_open_messages_on_open_room_id"
     t.index ["user_id"], name: "index_open_messages_on_user_id"
+  end
+
+  create_table "open_room_fan_teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "open_room_id"
+    t.bigint "fan_team_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fan_team_id"], name: "index_open_room_fan_teams_on_fan_team_id"
+    t.index ["open_room_id"], name: "index_open_room_fan_teams_on_open_room_id"
   end
 
   create_table "open_room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,6 +82,8 @@ ActiveRecord::Schema.define(version: 2020_11_03_053523) do
 
   add_foreign_key "open_messages", "open_rooms"
   add_foreign_key "open_messages", "users"
+  add_foreign_key "open_room_fan_teams", "fan_teams"
+  add_foreign_key "open_room_fan_teams", "open_rooms"
   add_foreign_key "open_room_users", "open_rooms"
   add_foreign_key "open_room_users", "users"
   add_foreign_key "relationships", "users"
