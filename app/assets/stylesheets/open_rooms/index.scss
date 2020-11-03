@@ -1,0 +1,120 @@
+.open-room {
+  padding-top: 110px;
+  min-height: calc(100vh - 180px);
+  background-color: lightcyan;
+}
+
+.open-room-title {
+  width: 100vw;
+  height: 10vh;
+  display: block;
+  text-align: center;
+  line-height: 10vh;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  background-color: blue;
+  position: relative;
+  a {
+    height: 70%;
+    padding: 0 10px;
+    background-color: rgb(224, 224, 0);
+    border: solid 1px rgb(224, 224, 0);
+    text-decoration: none;
+    text-align: center;
+    line-height: 47px;
+    color: black;
+    position: absolute;
+    top: 15.1%;
+    left: 85%;
+  }
+  a:active {
+    border: solid 1px black;
+  }
+}
+
+.open-room-search {
+  background-color: lightblue;
+}
+
+.open-search-top {
+  padding: 16px 0 8px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    padding-right: 10px;
+    display: block;
+    font-size: 17px;
+  }
+  select {
+    width: 280px;
+    height: 30px;
+    padding: 1px 5px;
+    display: block;
+    font-size: 17px;
+  }
+}
+
+.open-search-bottom {
+  padding: 8px 0 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    padding-right: 10px;
+    display: block;
+    font-size: 17px;
+  }
+  input {
+    width: 280px;
+    height: 30px;
+    padding: 1px 5px;
+    display: block;
+    font-size: 17px;
+  }
+}
+
+.open-lists {
+  padding: 16px 8px 0 8px;
+  background-color: lightcyan;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.open-list {
+  width: calc(50vw - 24px);
+  margin: 0 8px 16px 8px;
+  background-color: white;
+  border: solid gray 1px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.open-room-name {
+  padding: 10px;
+  margin: 2px 0 0 10px;
+  font-size: 20px;
+  color: black;
+}
+
+.open-room-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.open-room-member{
+  color: black;
+  margin: 0 0 5px 20px;
+}
+
+.open-room-at {
+  color: black;
+  margin: 0 20px 5px 0;
+}
+
+.open-member-icon {
+  margin-right: 5px;
+}
