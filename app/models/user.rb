@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :reverse_relationships, class_name: "Relationship", foreign_key: "follow_id"
   has_many :followers, through: :reverse_relationships, source: :user, dependent: :destroy
 
+  has_many :open_room_users
+  has_many :open_rooms, through: :open_room_users
+  has_many :open_messages
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
