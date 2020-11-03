@@ -1,0 +1,2 @@
+class OpenMessage < ApplicationRecord
+end
