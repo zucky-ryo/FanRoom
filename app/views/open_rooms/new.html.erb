@@ -1,0 +1,41 @@
+<%= render "shared/second-header"%>
+
+<form action="" class="open-new-form">
+  <div class="open-new-wrap">
+    <div class="open-new-header">
+      <h1 class="open-new-title">
+        新規公開チャットルーム
+      </h1>
+    </div>
+
+    <div class="open-new-group">
+      <div class="open-new-text-wrap">
+        <label for="" class="open-new-text">ルーム名</label>
+        <span class="open-new-indispensable">必須</span>
+      </div>
+      <textarea class="open-new-name" name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="open-new-group">
+      <div class="open-new-text-wrap">
+        <label for="" class="open-new-text">チームタグ</label>
+        <span class="open-new-indispensable">必須</span>
+      </div>
+      <div class="open-new-team-wrap">
+        <select name="" id="" class="open-new-team"></select>
+        <select name="" id="" class="open-new-team"></select>
+      </div>
+    </div>
+    <div class="open-new-group">
+      <div class="open-new-text-wrap">
+        <label for="" class="open-new-text">ルームメモ</label>
+        <span class="open-new-indispensable-not">任意</span>
+      </div>
+      <textarea class="open-new-content" name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="open-new-submit">
+      <input type="submit" value="新規作成" class="open-new-submit-btn">
+    </div>
+  </div>
+</form>
+
+<%= render "shared/second-footer"%>
