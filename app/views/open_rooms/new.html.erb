@@ -1,6 +1,6 @@
 <%= render "shared/second-header"%>
 
-<form action="" class="open-new-form">
+<%= form_with model: @open_room, url: open_rooms_path, class: "open-new-form", local: true do |f| %>
   <div class="open-new-wrap">
     <div class="open-new-header">
       <h1 class="open-new-title">
@@ -10,32 +10,32 @@
 
     <div class="open-new-group">
       <div class="open-new-text-wrap">
-        <label for="" class="open-new-text">ルーム名</label>
+        <label class="open-new-text">ルーム名</label>
         <span class="open-new-indispensable">必須</span>
       </div>
-      <textarea class="open-new-name" name="" id="" cols="30" rows="10"></textarea>
+      <%= f.text_area :name, class:"open-new-name", id:"open-name", placeholder:"分かりやすいルーム名を決めよう！", maxlength:"40", autofocus: true %>
     </div>
     <div class="open-new-group">
       <div class="open-new-text-wrap">
-        <label for="" class="open-new-text">チームタグ</label>
+        <label class="open-new-text">チームタグ</label>
         <span class="open-new-indispensable">必須</span>
       </div>
-      <div class="open-new-team-wrap">
-        <select name="" id="" class="open-new-team"></select>
-        <select name="" id="" class="open-new-team"></select>
+      <div class="open-new-team-wrap" id="open-team-select">
+        <%= f.collection_select "fan_team_id[][id]", FanTeam.all, :id, :team_name, {include_blank: "--"}, {id:"open-new-team"} %>
       </div>
+      <p class="add-open-team-tag" id="add-open-tag">チームタグを追加する</p>
     </div>
     <div class="open-new-group">
       <div class="open-new-text-wrap">
-        <label for="" class="open-new-text">ルームメモ</label>
+        <label class="open-new-text">ルームメモ</label>
         <span class="open-new-indispensable-not">任意</span>
       </div>
-      <textarea class="open-new-content" name="" id="" cols="30" rows="10"></textarea>
+      <%= f.text_area :description, class:"open-new-content", id:"open-content", placeholder:"グループの説明やアピールする文章を書こう！", maxlength:"1000" %>
     </div>
     <div class="open-new-submit">
-      <input type="submit" value="新規作成" class="open-new-submit-btn">
+      <%= f.submit '新規作成', class:"open-new-submit-btn" %>
     </div>
   </div>
-</form>
+<% end %>
 
 <%= render "shared/second-footer"%>
