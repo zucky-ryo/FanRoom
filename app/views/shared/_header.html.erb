@@ -22,12 +22,12 @@
     <ul class="link-list">
     <% if user_signed_in? %>
       <li><a href="">参加チャット</a></li>
-      <li><%= link_to '公開チャット', open_rooms_path %></li>
+      <li><%= link_to '公開チャット', open_rooms_path, id: "header-open-room" %></li>
       <li><a href="">投稿一覧</a></li>
       <li><%= link_to 'マイページ', user_path(current_user.id), id: "header-mypage" %></li>
     <% else %>
       <li><a href="">参加チャット</a></li>
-      <li><%= link_to '公開チャット', open_rooms_path %></li>
+      <li><%= link_to '公開チャット', open_rooms_path, id: "header-open-room" %></li>
       <li><a href="">投稿一覧</a></li>
       <li><%= link_to 'マイページ', new_user_session_path %></li>
     <% end %>
