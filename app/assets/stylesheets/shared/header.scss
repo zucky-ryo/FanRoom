@@ -57,10 +57,11 @@ header {
   padding-top: 6px;
   ul {
     text-align: center;
+    display: flex;
+    justify-content: space-around;
     li {
-      width: 230px;
-      margin: 0 15px;
-      display: inline-block;
+      width: 22vw;
+      display: block;
       border: solid black 1px;
       background-color: white;
       a {
