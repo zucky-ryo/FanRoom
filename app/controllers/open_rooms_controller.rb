@@ -1,5 +1,6 @@
 class OpenRoomsController < ApplicationController
   def index
+    @open_rooms = OpenRoom.includes(:users)
   end
 
   def new

@@ -17,33 +17,7 @@
     </div>
   </div>
   <ul class="open-lists">
-    <li class="open-list">
-      <a href="">
-        <h4 class="open-room-name">RoomName</h4>
-        <div class="open-room-description">
-          <p class="open-room-member"><i class="fas fa-user-alt open-member-icon"></i>30</p>
-          <p class="open-room-at">2020/10/26</p>
-        </div>
-      </a>
-    </li>
-    <li class="open-list">
-      <a href="">
-        <h4 class="open-room-name">RoomName</h4>
-        <div class="open-room-description">
-          <p class="open-room-member"><i class="fas fa-user-alt open-member-icon"></i>30</p>
-          <p class="open-room-at">2020/10/26</p>
-        </div>
-      </a>
-    </li>
-    <li class="open-list">
-      <a href="">
-        <h4 class="open-room-name">RoomName</h4>
-        <div class="open-room-description">
-          <p class="open-room-member"><i class="fas fa-user-alt open-member-icon"></i>30</p>
-          <p class="open-room-at">2020/10/26</p>
-        </div>
-      </a>
-    </li>
+    <%= render partial: 'open_room', collection: @open_rooms %>
   </ul>
 </div>
 
