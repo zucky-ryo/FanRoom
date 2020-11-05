@@ -17,6 +17,9 @@ class OpenRoomsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def open_room_params

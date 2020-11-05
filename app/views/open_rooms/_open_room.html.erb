@@ -1,9 +1,9 @@
 <li class="open-list">
-  <a href="">
+  <%= link_to open_room_path(1) do %>
     <h4 class="open-room-name"><%= open_room.name %></h4>
     <div class="open-room-description">
       <p class="open-room-member"><i class="fas fa-user-alt open-member-icon"></i><%= open_room.users.length %></p>
       <p class="open-room-at">2020/10/26</p>
     </div>
-  </a>
+  <% end %>
 </li>
