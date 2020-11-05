@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_11_03_053939) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["fan_team_id"], name: "index_open_room_fan_teams_on_fan_team_id"
+    t.index ["open_room_id", "fan_team_id"], name: "index_open_room_fan_teams_on_open_room_id_and_fan_team_id", unique: true
     t.index ["open_room_id"], name: "index_open_room_fan_teams_on_open_room_id"
   end
 

@@ -163,8 +163,8 @@ has_many :open_room_fan_teams
 
 ### Association
 
-belongs_to :user
 belongs_to :open_room
+belongs_to :fan_team
 
 ## tweet_fan_teamsテーブル
 

@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   root to: "private_rooms#index"
   resources :users, only: :show
   resources :relationships, only: [:create, :destroy]
-  resources :open_rooms, only: [:index, :new]
+  resources :open_rooms, only: [:index, :new, :create]
 end

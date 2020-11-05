@@ -4,6 +4,8 @@ class CreateOpenRoomFanTeams < ActiveRecord::Migration[6.0]
       t.references :open_room, foreign_key: true
       t.references :fan_team, foreign_key: true
       t.timestamps
+
+      t.index [:open_room_id, :fan_team_id], unique: true
     end
   end
 end
