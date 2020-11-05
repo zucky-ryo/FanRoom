@@ -10,10 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_072850) do
+ActiveRecord::Schema.define(version: 2020_11_03_053939) do
 
   create_table "fan_teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "team_name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "open_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "user_id"
+    t.bigint "open_room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["open_room_id"], name: "index_open_messages_on_open_room_id"
+    t.index ["user_id"], name: "index_open_messages_on_user_id"
+  end
+
+  create_table "open_room_fan_teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "open_room_id"
+    t.bigint "fan_team_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fan_team_id"], name: "index_open_room_fan_teams_on_fan_team_id"
+    t.index ["open_room_id", "fan_team_id"], name: "index_open_room_fan_teams_on_open_room_id_and_fan_team_id", unique: true
+    t.index ["open_room_id"], name: "index_open_room_fan_teams_on_open_room_id"
+  end
+
+  create_table "open_room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "open_room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["open_room_id"], name: "index_open_room_users_on_open_room_id"
+    t.index ["user_id", "open_room_id"], name: "index_open_room_users_on_user_id_and_open_room_id", unique: true
+    t.index ["user_id"], name: "index_open_room_users_on_user_id"
+  end
+
+  create_table "open_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -45,6 +82,12 @@ ActiveRecord::Schema.define(version: 2020_10_31_072850) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "open_messages", "open_rooms"
+  add_foreign_key "open_messages", "users"
+  add_foreign_key "open_room_fan_teams", "fan_teams"
+  add_foreign_key "open_room_fan_teams", "open_rooms"
+  add_foreign_key "open_room_users", "open_rooms"
+  add_foreign_key "open_room_users", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
   add_foreign_key "users", "fan_teams"

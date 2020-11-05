@@ -26,10 +26,10 @@ belongs_to :fan_team
 
 ## relationshipsテーブル
 
-| Column | Type       | Options                                      |
-| ------ | ---------- | -------------------------------------------- |
-| user   | references | null: false, foreign_key: true               |
-| follow | references | null: false, foreign_key: {to_table: :users} |
+| Column | Type       |Options                                     |
+| ------ | ---------- |--------------------------------------------|
+| user   | references | null: false, foreign_key:true              |
+| follow | references | null: false, foreign_key: {to_table::users}|
 
 ### Association
 
@@ -38,9 +38,10 @@ belongs_to :follow, class_name: 'User'
 
 ## open_roomsテーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
+| Column        | Type   | Options     |
+| ------------- | ------ | ----------- |
+| name          | string | null: false |
+| description   | text   | null: false |
 
 ### Association
 
@@ -162,8 +163,8 @@ has_many :open_room_fan_teams
 
 ### Association
 
-belongs_to :user
 belongs_to :open_room
+belongs_to :fan_team
 
 ## tweet_fan_teamsテーブル
 

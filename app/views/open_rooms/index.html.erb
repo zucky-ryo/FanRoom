@@ -1,0 +1,24 @@
+<%= render "shared/header" %>
+
+<div class="open-room">
+  <div class="open-room-title">公開チャットルーム一覧
+    <%= link_to '作成', new_open_room_path, class: "open-new-btn" %>
+  </div>
+  <div class="open-room-search">
+    <div class="open-search-top">
+      <span>　チームタグ：</span>
+      <select name="" id="" class="open-team-search">
+        <option value="1">東北楽天ゴールデンイーグルス</option>
+      </select>
+    </div>
+    <div class="open-search-bottom">
+      <span>ルーム名検索：</span>
+      <input type="search" class="open-name-search">
+    </div>
+  </div>
+  <ul class="open-lists">
+    <%= render partial: 'open_room', collection: @open_rooms %>
+  </ul>
+</div>
+
+<%= render "shared/footer" %>
