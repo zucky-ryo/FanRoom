@@ -19,6 +19,8 @@ class OpenRoomsController < ApplicationController
 
   def show
     @open_room = OpenRoom.find(params[:id])
+    @open_message = OpenMessage.new
+    @open_messages = @open_room.open_messages.includes(:user)
   end
 
   private
