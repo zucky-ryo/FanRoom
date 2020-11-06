@@ -1,1 +1,30 @@
-<h1>こんにちは</h1>
+<div class="chat-room-all">
+  <div class="chat-header">
+    <%= link_to '＜', :back, class:"back-btn" %>
+    <h1 class="room-name"><%= @open_room.name %></h1>
+    <a href="#" class="room-description">詳細</a>
+  </div>
+
+  <div class="chat-main">
+    <ul class="message-lists">
+      <li class="message-list">
+        <p class="message-user">sample1</p>
+        <div class="message-main">
+          <p class="message-box">初めまして、こんにちは</p>
+          <p class="message-time">11:40</p>
+        </div>
+      </li>
+      <li class="my-message-list">
+        <div class="my-message-main">
+          <p class="my-message-time">11:40</p>
+          <p class="my-message-box">初めまして、こんにちは</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="chat-footer">
+    <textarea class="new-message-box" placeholder="メッセージを送信しよう！"></textarea>
+    <input type="submit" value="送信" class="new-message-submit">
+  </div>
+</div>

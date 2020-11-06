@@ -1,0 +1,158 @@
+.chat-room-all {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chat-header {
+  width: 100vw;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgreen;
+}
+
+.back-btn {
+  width: 100px;
+  height: 100%;
+  padding-left: 10px;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 70px;
+  text-shadow: gray 1px 0px;
+}
+
+.back-btn:active {
+  text-shadow: none;
+}
+
+.room-name {
+  width: 70vw;
+  height: 70%;
+  padding: 0 20px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 48px;
+}
+
+.room-description {
+  width: 80px;
+  height: 70%;
+  margin-right: 30px;
+  display: block;
+  background-color: yellow;
+  border-radius: 4px;
+  box-shadow: gray 2px 2px;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 48px;
+}
+
+.room-description:active {
+  box-shadow: none;
+}
+
+.chat-main {
+  width: 100vw;
+  height: calc(100vh - 140px);
+  overflow: auto;
+}
+
+.message-lists {
+  margin: 15px 20px;
+  background-color: rgb(240, 250, 255);
+  border-radius: 20px;
+}
+
+.message-list {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.message-user {
+  width: 80%;
+  margin: 0 0 2px 25px;
+  font-size: 18px;
+  color: rgb(68, 68, 68);
+}
+
+.message-main {
+  width: 80%;
+  margin-left: 5px;
+  display: flex;
+}
+
+.message-box {
+  padding: 5px 15px;
+  background-color: rgb(184, 235, 255);
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.message-time {
+  padding-top: 15px;
+  margin-left: 8px;
+  color: gray;
+}
+
+.my-message-list {
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.my-message-main {
+  width: 80%;
+  margin-right: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.my-message-box {
+  padding: 5px 15px;
+  background-color: rgb(253, 253, 120);
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.my-message-time {
+  padding-top: 15px;
+  margin-right: 8px;
+  color: gray;
+}
+
+.chat-footer {
+  width: 100vw;
+  min-height: 70px;
+  padding-bottom: 10px;
+  background-color: rgb(214, 214, 214);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.new-message-box {
+  width: 70vw;
+  height: 50px;
+  padding: 8px 15px;
+  display: block;
+  font-size: 20px;
+}
+
+.new-message-submit {
+  height: 50px;
+  padding: 0 20px;
+  margin-left: 10px;
+  display: block;
+}

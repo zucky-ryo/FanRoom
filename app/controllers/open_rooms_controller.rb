@@ -18,6 +18,7 @@ class OpenRoomsController < ApplicationController
   end
 
   def show
+    @open_room = OpenRoom.find(params[:id])
   end
 
   private
