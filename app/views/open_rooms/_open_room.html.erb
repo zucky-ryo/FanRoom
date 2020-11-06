@@ -1,5 +1,5 @@
 <li class="open-list">
-  <%= link_to open_room_path(1) do %>
+  <%= link_to open_room_path(open_room.id) do %>
     <h4 class="open-room-name"><%= open_room.name %></h4>
     <div class="open-room-description">
       <p class="open-room-member"><i class="fas fa-user-alt open-member-icon"></i><%= open_room.users.length %></p>
