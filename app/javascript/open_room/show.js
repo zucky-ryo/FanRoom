@@ -15,6 +15,14 @@ $(function(){
       $('#open-chat-footer').append(messageBox);
       $('#open-chat-footer').append(messageSubmit);
     });
+
+    // メッセージ入力後Ctrl + Enter又は⌘ + Enterで送信
+    $('#open_message_content').keydown((e) => {
+      if ((e.ctrlKey || e.metaKey) && e.keyCode === 13) {
+        $('#open-chat-footer').submit();
+        return false;
+      }
+    });
   }
 });
 
