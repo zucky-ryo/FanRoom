@@ -31,13 +31,13 @@
   </div>
   </div>
   <%# メッセージ送信フォーム（ルーム未参加時は参加を促すメッセージを表示） %>
-  <%= form_with model: @open_message, url: open_room_open_messages_path(@open_room.id), class:"chat-footer" do |f| %>
+  <%= form_with model: @open_message, url: open_room_open_messages_path(@open_room.id), class:"chat-footer", id:"open-chat-footer" do |f| %>
     <% if @open_room.users.include?(current_user) %>
-      <%= f.text_field :content,  class:"new-message-box", placeholder:"メッセージを送信しよう！" %>
+      <%= f.text_area :content, class:"new-message-box", placeholder:"メッセージを送信しよう！" %>
       <%= f.submit "送信", class:"new-message-submit" %>
     <% else %>
-      <p class="room-before-text">ルームに入室してチャットに参加しよう！</p>
-      <%= link_to '入室', add_member_open_room_path(@open_room.id), method: :post, class:"enter-open-room", data: { confirm: "#{@open_room.name}に入室しますか？" }, remote: true %>
+      <p class="room-before-text" id="before-enter-text">ルームに入室してチャットに参加しよう！</p>
+      <%= link_to '入室', add_member_open_room_path(@open_room.id), method: :post, class:"enter-open-room", id:"enter-room-btn", remote: true %>
     <% end %>
   <% end %>
 </div>
