@@ -95,6 +95,7 @@
   width: 80%;
   margin-left: 5px;
   display: flex;
+  align-items: flex-end;
 }
 
 .message-box {
@@ -102,6 +103,7 @@
   background-color: rgb(184, 235, 255);
   border-radius: 5px;
   font-size: 20px;
+  white-space: pre-wrap;
 }
 
 .message-time {
@@ -122,6 +124,7 @@
   margin-right: 5px;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .my-message-box {
@@ -129,6 +132,7 @@
   background-color: rgb(253, 253, 120);
   border-radius: 5px;
   font-size: 20px;
+  white-space: pre-wrap;
 }
 
 .my-message-time {
