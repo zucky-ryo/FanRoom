@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :open_rooms, only: [:index, :new, :create, :show] do
     resources :open_messages, only: :create
+    member do
+      post "add_member"
+    end
   end
 end

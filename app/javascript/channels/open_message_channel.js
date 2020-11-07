@@ -9,6 +9,7 @@ consumer.subscriptions.create("OpenMessageChannel", {
     // Called when the subscription has been terminated by the server
   },
 
+  // メッセージ送信時にすぐ表示（本人が送信した場合と他人が送信した場合に表示を分ける）
   received(data) {
     const japanStandardTime = new Date().toLocaleString({ timeZone: 'Asia/Tokyo' });
     const hours = new Date(japanStandardTime).getHours();

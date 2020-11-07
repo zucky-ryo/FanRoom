@@ -23,6 +23,11 @@ class OpenRoomsController < ApplicationController
     @open_messages = @open_room.open_messages.includes(:user)
   end
 
+  # 今見てるチャットルームに参加する
+  def add_member
+    OpenRoomUser.find_or_create_by(user_id: current_user.id, open_room_id: params[:id])
+  end
+
   private
 
   def open_room_params
