@@ -27,6 +27,8 @@ consumer.subscriptions.create("OpenMessageChannel", {
       let newMessage = document.getElementById('open_message_content');
       messages.insertAdjacentHTML('beforeend', html);
       newMessage.value='';
+      // メッセージ送信時、一番下にスクロールする
+      $('#scroll').prop({ scrollTop: $("#scroll").prop("scrollHeight") });
     } else {
       let html = `<li class="message-list">` +
                     `<p class="message-user">${data.user.nickname}</p>` +
@@ -39,6 +41,10 @@ consumer.subscriptions.create("OpenMessageChannel", {
       let newMessage = document.getElementById('open_message_content');
       messages.insertAdjacentHTML('beforeend', html);
       newMessage.value='';
+      // 他のメンバーのメッセージ送信時、スクロールが一番下であれば一番下にスクロールする
+      if ($('#inner-scroll').innerHeight() == $('#scroll').scrollTop() + 620) {
+        $('#scroll').prop({ scrollTop: $("#scroll").prop("scrollHeight") });
+      }
     }
   }
 });

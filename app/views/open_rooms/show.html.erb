@@ -5,8 +5,9 @@
     <a href="#" class="room-description">詳細</a>
   </div>
 
-  <div class="chat-main">
-  <p class="user-id-hidden" id="id-hidden"><%= current_user.id %></p>
+  <div class="chat-main" id="scroll">
+  <div id="inner-scroll">
+    <p class="user-id-hidden" id="id-hidden"><%= current_user.id %></p>
     <ul class="message-lists" id="open-message-lists">
       <% @open_messages.each do |open_message| %>
         <% if current_user == open_message.user %>
@@ -28,7 +29,7 @@
       <% end %>
     </ul>
   </div>
-
+  </div>
   <%# メッセージ送信フォーム（ルーム未参加時は参加を促すメッセージを表示） %>
   <%= form_with model: @open_message, url: open_room_open_messages_path(@open_room.id), class:"chat-footer" do |f| %>
     <% if @open_room.users.include?(current_user) %>
