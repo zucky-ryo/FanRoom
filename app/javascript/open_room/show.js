@@ -6,14 +6,27 @@ $(function(){
 
     // 公開ルームに参加した時にメッセージ入力フォームを表示させる
     $('#enter-room-btn').click(() => {
-      const messageToken = '<input type="hidden" name="authenticity_token" value="Rihe8ErNK1zEge014G2oFAd/0YCt9IFDkD2PEvlEHYysJIJSiq11qO2eTLSG+0aDC+OYLTyiUuOd0iOnGk5tGw==">'
-      const messageBox = '<input class="new-message-box" placeholder="メッセージを送信しよう！" type="text" name="open_message[content]" id="open_message_content">'
-      const messageSubmit = '<input type="submit" name="commit" value="送信" class="new-message-submit" data-disable-with="送信">'
+      const messageToken = '<input type="hidden" name="authenticity_token" value="Rihe8ErNK1zEge014G2oFAd/0YCt9IFDkD2PEvlEHYysJIJSiq11qO2eTLSG+0aDC+OYLTyiUuOd0iOnGk5tGw==">';
+      const messageBox = '<input class="new-message-box" placeholder="メッセージを送信しよう！" type="text" name="open_message[content]" id="open_message_content">';
+      const messageSubmit = '<input type="submit" name="commit" value="送信" class="new-message-submit" data-disable-with="送信">';
       $('#before-enter-text').css('display', 'none');
       $('#enter-room-btn').css('display', 'none');
       $('#open-chat-footer').append(messageToken);
       $('#open-chat-footer').append(messageBox);
       $('#open-chat-footer').append(messageSubmit);
+    });
+
+    // メッセージ入力欄を行数に合わせて広げる
+    const textArea = $('#open_message_content');
+    const roomFooter = $('#open-chat-footer');
+    const boxHeight = parseInt(textArea.css('height'));
+    const footerHeight = parseInt(roomFooter.css('height'));
+    textArea.keyup(() => {
+      const line = (textArea.val() + '\n').match(/\n/g).length;
+      if (line < 6) {
+        textArea.css('height', 30 * (line - 1) + boxHeight);
+        roomFooter.css('height', 40 * (line - 1) + footerHeight);
+      }
     });
 
     // メッセージ入力後Ctrl + Enter又は⌘ + Enterで送信
