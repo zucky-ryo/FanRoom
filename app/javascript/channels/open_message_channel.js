@@ -41,10 +41,11 @@ consumer.subscriptions.create("OpenMessageChannel", {
                     `</li>`;
         let messages = document.getElementById('open-message-lists');
         let newMessage = document.getElementById('open_message_content');
+        const chatHeight = $('#inner-scroll').innerHeight();
         messages.insertAdjacentHTML('beforeend', html);
         newMessage.value='';
         // 他のメンバーのメッセージ送信時、スクロールが一番下であれば一番下にスクロールする
-        if ($('#inner-scroll').innerHeight() == $('#scroll').scrollTop() + 620) {
+        if (chatHeight == $('#scroll').scrollTop() + $('#scroll').innerHeight() - 30) {
           $('#scroll').prop({ scrollTop: $("#scroll").prop("scrollHeight") });
         }
       }
