@@ -19,7 +19,7 @@
     height: 70%;
     padding: 0 10px;
     background-color: rgb(224, 224, 0);
-    border: solid 1px rgb(224, 224, 0);
+    box-shadow: gray 2px 2px;
     border-radius: 4px;
     text-decoration: none;
     text-align: center;
@@ -29,8 +29,11 @@
     top: 15.1%;
     left: 85%;
   }
+  a:hover {
+    background-color: yellow;
+  }
   a:active {
-    border: solid 1px black;
+    box-shadow: none;
   }
 }
 
@@ -91,6 +94,10 @@
   a {
     text-decoration: none;
   }
+}
+
+.open-list:hover {
+  background-color: rgb(211, 211, 211);
 }
 
 .open-room-name {

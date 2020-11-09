@@ -17,15 +17,19 @@
 .back-btn {
   width: 100px;
   height: 100%;
-  padding-left: 10px;
+  padding: 5px 0 0 15px;
   display: block;
   text-decoration: none;
   text-align: center;
   color: white;
-  font-size: 50px;
+  font-size: 60px;
   font-weight: bold;
   line-height: 70px;
   text-shadow: gray 1px 0px;
+}
+
+.back-btn:hover {
+  color: rgb(230, 230, 230);
 }
 
 .back-btn:active {
@@ -43,7 +47,7 @@
 }
 
 .room-description {
-  width: 80px;
+  width: 90px;
   height: 70%;
   margin-right: 30px;
   display: block;
@@ -56,9 +60,39 @@
   font-size: 28px;
   font-weight: bold;
   line-height: 48px;
+  cursor: pointer;
+}
+
+.room-description:hover {
+  background-color: orange;
 }
 
 .room-description:active {
+  box-shadow: none;
+}
+
+.room-description-close {
+  width: 90px;
+  height: 70%;
+  margin-right: 30px;
+  display: none;
+  background-color: yellow;
+  border-radius: 4px;
+  box-shadow: gray 2px 2px;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 48px;
+  cursor: pointer;
+}
+
+.room-description-close:hover {
+  background-color: orange;
+}
+
+.room-description-close:active {
   box-shadow: none;
 }
 
@@ -189,4 +223,175 @@
 
 .enter-open-room:active {
   box-shadow: none;
+}
+
+.open-room-second-main {
+  width: 100vw;
+  height: calc(100vh - 70px);
+  background-color: rgba(181, 232, 252, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 70px;
+  display: none;
+}
+
+.open-room-second-wrap {
+  width: 65vw;
+  height: calc(100vh - 70px);
+  background-color: rgb(252, 252, 130);
+  overflow: auto;
+}
+
+.room-head-wrap {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.room-member-wrap {
+  max-width: 40vw;
+  margin-left: 30px;
+  background-color: rgb(15, 219, 15);
+  box-shadow: gray 1px 1px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  position: relative;
+  cursor: pointer;
+}
+
+.room-member-wrap:hover {
+  background-color: rgb(22, 212, 22);
+  box-shadow: none;
+}
+
+.room-member-title {
+  padding: 3px 8px;
+  font-size: 25px;
+}
+
+.room-member-length {
+  padding: 3px 8px;
+  margin-left: 8px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.room-member-pulldown {
+  padding: 8px 10px 0 0;
+  font-size: 18px;
+  color: white;
+}
+
+.room-member-list {
+  width: 100%;
+  max-height: 230px;
+  background-color: rgb(252, 211, 77);
+  border-radius: 4px;
+  overflow: auto;
+  position: absolute;
+  top: 45px;
+  display: none;
+}
+
+.room-member {
+  padding: 5px 0;
+  margin: 2px;
+  display: block;
+  background-color: rgb(255, 196, 0);
+  border-radius: 4px;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.room-member:hover {
+  background-color: rgb(252, 211, 77);
+}
+
+.room-btn-wrap {
+  display: flex;
+  align-items: center;
+  a {
+    padding: 3px 8px;
+    margin-left: 15px;
+    box-shadow: gray 1px 1px;
+    border-radius: 3px;
+    display: block;
+    text-decoration: none;
+    font-size: 25px;
+  }
+}
+
+.open-room-edit {
+  background-color: rgb(0, 102, 255);
+  color: white;
+}
+
+.open-room-edit:hover {
+  background-color: blue;
+}
+
+.open-room-edit:active {
+  box-shadow: none;
+}
+
+.open-room-exit {
+  background-color: rgb(253, 70, 70);
+  color: white;
+}
+.open-room-exit:hover {
+  background-color: red;
+}
+
+.open-room-exit:active {
+  box-shadow: none;
+}
+
+.room-team-tag-wrap {
+  padding: 15px;
+}
+
+.team-tag-title {
+  padding-left: 30px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.team-tag-list {
+  padding: 10px 20px 5px 20px;
+  background-color: rgb(253, 255, 235);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.team-tag {
+  padding-bottom: 5px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.room-memo-wrap {
+  padding: 15px;
+}
+
+.room-memo-title {
+  padding-left: 30px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.room-memo {
+  min-height: 310px;
+  padding: 12px 20px;
+  background-color: rgb(253, 255, 235);
+  font-size: 22px;
+  white-space: pre-wrap;
 }

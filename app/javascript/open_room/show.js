@@ -36,6 +36,28 @@ $(function(){
         return false;
       }
     });
+
+    // ルームの詳細ボタンを押すと詳細が表示される
+    $('#open-description').click(() => {
+      $('#open-second-main').fadeIn(300).css('display','flex');
+      $('#open-description').css('display', 'none');
+      $('#open-description-close').css('display', 'block');
+    });
+    $('#open-description-close').click(() => {
+      $('#open-second-main').fadeOut(300)
+      $('#open-description-close').css('display', 'none');
+      $('#open-description').css('display', 'block');
+    });
+
+    // 詳細のメンバーにカーソルを合わせるとメンバーリストが表示される
+    $('#member-wrap').hover(
+      () => {
+        $('#member-list').css('display', 'block');
+      },
+      () => {
+        $('#member-list').css('display', 'none');
+      }
+    );
   }
 });
 
