@@ -74,7 +74,7 @@
       <%= f.submit "送信", class:"new-message-submit" %>
     <% else %>
       <p class="room-before-text" id="before-enter-text">ルームに入室してチャットに参加しよう！</p>
-      <%= link_to '入室', add_member_open_room_path(@open_room.id), method: :post, class:"enter-open-room", id:"enter-room-btn", remote: true %>
+      <%= link_to '入室', add_member_open_room_path(@open_room.id), method: :post, class:"enter-open-room" %>
     <% end %>
   <% end %>
 </div>

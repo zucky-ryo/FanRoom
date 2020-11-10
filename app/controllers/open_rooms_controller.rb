@@ -41,7 +41,9 @@ class OpenRoomsController < ApplicationController
 
   # 今見てるチャットルームに参加する
   def add_member
+    @open_room = OpenRoom.find(params[:id])
     OpenRoomUser.find_or_create_by(user_id: current_user.id, open_room_id: params[:id])
+    redirect_to open_room_path(@open_room.id)
   end
 
   def remove_member
