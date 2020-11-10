@@ -4,4 +4,6 @@ class OpenRoom < ApplicationRecord
   has_many :open_messages
   has_many :open_room_fan_teams
   has_many :fan_teams, through: :open_room_fan_teams
+
+  validates :name, presence: true
 end

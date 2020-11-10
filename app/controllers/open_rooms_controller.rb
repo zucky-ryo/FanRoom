@@ -19,8 +19,24 @@ class OpenRoomsController < ApplicationController
 
   def show
     @open_room = OpenRoom.find(params[:id])
+    @users = @open_room.users
     @open_message = OpenMessage.new
     @open_messages = @open_room.open_messages.includes(:user)
+  end
+
+  def edit
+    @open_room = @open_room = OpenRoom.find(params[:id])
+    @users = @open_room.users
+  end
+
+  def update
+    @open_room = @open_room = OpenRoom.find(params[:id])
+    @users = @open_room.users
+    if @open_room.update(open_room_update_params)
+      redirect_to open_room_path(@open_room.id)
+    else
+      render :edit
+    end
   end
 
   # 今見てるチャットルームに参加する
@@ -32,5 +48,9 @@ class OpenRoomsController < ApplicationController
 
   def open_room_params
     params.require(:open_room_team).permit(:name, :description, fan_team_id: [:id]).merge(user_id: current_user.id)
+  end
+
+  def open_room_update_params
+    params.require(:open_room).permit(:name, :description)
   end
 end

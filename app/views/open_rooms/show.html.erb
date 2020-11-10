@@ -1,6 +1,6 @@
 <div class="chat-room-all">
   <div class="chat-header">
-    <%= link_to '', :back, class:"fas fa-angle-double-left back-btn" %>
+    <%= link_to '', root_path, class:"fas fa-angle-double-left back-btn" %>
     <h1 class="room-name"><%= @open_room.name %></h1>
     <p class="room-description" id="open-description">詳細</p>
     <p class="room-description-close" id="open-description-close">閉じる</p>
@@ -37,19 +37,16 @@
       <div class="room-head-wrap">
         <div class="room-member-wrap" id="member-wrap">
           <p class="room-member-title">メンバー：</p>
-          <p class="room-member-length">15人</p>
+          <p class="room-member-length"><%= @open_room.users.length %>人</p>
           <span class="room-member-pulldown">▼</span>
           <ul class="room-member-list" id="member-list">
-            <a class="room-member">suzuki</a>
-            <a class="room-member">tanaka</a>
-            <a class="room-member">suzuki</a>
-            <a class="room-member">tanaka</a>
-            <a class="room-member">suzuki</a>
-            <a class="room-member">tanaka</a>
+            <% @users.each do |user| %>
+              <%= link_to user.nickname, user_path(user.id), class:"room-member" %>
+            <% end %>
           </ul>
         </div>
         <div class="room-btn-wrap">
-          <a href="#" class="open-room-edit">編集</a>
+          <%= link_to '編集', edit_open_room_path(@open_room.id), class:"open-room-edit" %>
           <a href="#" class="open-room-exit">退出</a>
         </div>
       </div>
