@@ -47,7 +47,7 @@
         </div>
         <div class="room-btn-wrap">
           <%= link_to '編集', edit_open_room_path(@open_room.id), class:"open-room-edit" %>
-          <%= link_to '退出', remove_member_open_room_path(@open_room.id), method: :delete, class:"open-room-exit" %>
+          <%= link_to '退出', remove_member_open_room_path(@open_room.id), method: :delete, class:"open-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
         </div>
       </div>
       <div class="room-team-tag-wrap">
