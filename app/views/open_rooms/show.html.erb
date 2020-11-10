@@ -1,6 +1,6 @@
 <div class="chat-room-all">
   <div class="chat-header">
-    <%= link_to '', root_path, class:"fas fa-angle-double-left back-btn" %>
+    <%= link_to '', private_rooms_path, class:"fas fa-angle-double-left back-btn" %>
     <h1 class="room-name"><%= @open_room.name %></h1>
     <p class="room-description" id="open-description">詳細</p>
     <p class="room-description-close" id="open-description-close">閉じる</p>
@@ -47,7 +47,7 @@
         </div>
         <div class="room-btn-wrap">
           <%= link_to '編集', edit_open_room_path(@open_room.id), class:"open-room-edit" %>
-          <a href="#" class="open-room-exit">退出</a>
+          <%= link_to '退出', remove_member_open_room_path(@open_room.id), method: :delete, class:"open-room-exit" %>
         </div>
       </div>
       <div class="room-team-tag-wrap">

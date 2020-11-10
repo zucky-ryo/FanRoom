@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :open_messages, only: :create
     member do
       post "add_member"
+      delete "remove_member"
     end
   end
+  resources :private_rooms, only: [:index]
 end
