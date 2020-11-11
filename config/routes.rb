@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       post "add_member"
       delete "remove_member"
     end
+    collection do
+      get "search"
+    end
   end
   resources :private_rooms, only: [:index]
 end

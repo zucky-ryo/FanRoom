@@ -1,6 +1,6 @@
 class OpenRoomsController < ApplicationController
   def index
-    @open_rooms = OpenRoom.includes(:users)
+    @open_rooms = OpenRoom.includes(:users, :open_messages)
   end
 
   def new
@@ -36,6 +36,19 @@ class OpenRoomsController < ApplicationController
       redirect_to open_room_path(@open_room.id)
     else
       render :edit
+    end
+  end
+
+  # チームタグによるルーム検索
+  def search
+    @open_rooms = OpenRoom.includes(:users, :open_messages)
+    if params[:fan_team_id] != ""
+      @fan_team = FanTeam.find(params[:fan_team_id])
+      @search_rooms = @open_rooms.select do |r|
+        r.fan_teams.include?(@fan_team)
+      end
+    else
+      render :index
     end
   end
 
