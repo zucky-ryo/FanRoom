@@ -13,11 +13,11 @@
     <% end %>
     <div class="open-search-bottom">
       <span>ルーム名検索：</span>
-      <input type="search" class="open-name-search">
+      <input type="search" class="open-name-search" id="room-name-search">
     </div>
   </div>
   <p class="search-explain">チームタグ：<span><%= @fan_team.team_name %></span>を含む公開チャットルームを表示中</p>
-  <ul class="open-lists">
+  <ul class="open-lists" id="room-lists">
     <%= render partial: 'search_room', collection: @search_rooms %>
   </ul>
 </div>

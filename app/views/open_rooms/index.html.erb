@@ -13,10 +13,10 @@
     <% end %>
     <div class="open-search-bottom">
       <span>ルーム名検索：</span>
-      <input type="search" class="open-name-search">
+      <input type="search" class="open-name-search" id="room-name-search">
     </div>
   </div>
-  <ul class="open-lists">
+  <ul class="open-lists" id="room-lists">
     <%= render partial: 'open_room', collection: @open_rooms %>
   </ul>
 </div>
