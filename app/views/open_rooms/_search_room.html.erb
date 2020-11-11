@@ -1,10 +1,18 @@
 <div class="open-list-css">
 <li class="open-list">
   <%= link_to open_room_path(search_room.id) do %>
-    <h4 class="open-room-name"><%= search_room.name %></h4>
+    <% if search_room.users.include?(current_user) %>
+      <h4 class="open-room-name"><%= search_room.name %><span>(参加中)</span></h4>
+    <% else %>
+      <h4 class="open-room-name"><%= search_room.name %></h4>
+    <% end %>
     <div class="open-room-description">
       <p class="open-room-member"><i class="fas fa-user-alt open-member-icon"></i><%= search_room.users.length %></p>
-      <p class="open-room-at">2020/10/26</p>
+      <% if search_room.open_messages[0].created_at.strftime("%Y/%m/%d") == Date.today.strftime("%Y/%m/%d") %>
+        <p class="open-room-at">Today<%= search_room.open_messages[-1].created_at.strftime(" %-H:%M") %></p>
+      <% else %>
+        <p class="open-room-at"><%= search_room.open_messages[-1].created_at.strftime("%Y/%m/%d %-H:%M") %></p>
+      <% end %>
     </div>
   <% end %>
 </li>

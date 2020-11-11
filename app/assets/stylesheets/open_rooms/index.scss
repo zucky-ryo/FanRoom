@@ -122,6 +122,12 @@
   margin: 2px 0 0 10px;
   font-size: 20px;
   color: black;
+  span {
+    margin-left: 5px;
+    display: inline-block;
+    font-size: 16px;
+    color: gray;
+  }
 }
 
 .open-room-description {
