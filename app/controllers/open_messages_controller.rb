@@ -1,4 +1,6 @@
 class OpenMessagesController < ApplicationController
+  
+  # チャネルを利用してメッセージの送信を行う
   def create
     open_room = OpenRoom.find(params[:open_room_id])
     @open_message = OpenMessage.new(open_message_params)
