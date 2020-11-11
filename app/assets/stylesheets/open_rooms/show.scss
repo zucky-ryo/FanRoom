@@ -179,7 +179,7 @@
   width: 100vw;
   min-height: 70px;
   padding-bottom: 10px;
-  background-color: rgb(214, 214, 214);
+  background-color: rgb(115, 226, 208);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -191,6 +191,7 @@
   padding: 8px 15px;
   display: block;
   font-size: 20px;
+  resize: none;
 }
 
 .new-message-submit {
@@ -205,6 +206,7 @@
   padding: 8px 15px;
   font-size: 22px;
   font-weight: bold;
+  
 }
 
 .enter-open-room {
@@ -212,13 +214,17 @@
   padding: 5px 15px;
   margin-left: 10px;
   display: inline-block;
-  background-color: rgb(0, 200, 0);
+  background-color: orange;
   border-radius: 4px;
   box-shadow: gray 2px 2px;
   text-decoration: none;
   font-size: 25px;
   font-weight: bold;
   color: white;
+}
+
+.enter-open-room:hover {
+  background-color: rgb(255, 196, 0);
 }
 
 .enter-open-room:active {

@@ -1,6 +1,10 @@
 <div class="chat-room-all">
   <div class="chat-header">
-    <%= link_to '', private_rooms_path, class:"fas fa-angle-double-left back-btn" %>
+    <% if @users.include?(current_user) %>
+      <%= link_to '', private_rooms_path, class:"fas fa-angle-double-left back-btn" %>
+    <% else %>
+      <%= link_to '', :back, class:"fas fa-angle-double-left back-btn" %>
+    <% end %>
     <h1 class="room-name"><%= @open_room.name %></h1>
     <p class="room-description" id="open-description">詳細</p>
     <p class="room-description-close" id="open-description-close">閉じる</p>
@@ -46,23 +50,27 @@
           </ul>
         </div>
         <div class="room-btn-wrap">
+          <% if @users.include?(current_user) %>
           <%= link_to '編集', edit_open_room_path(@open_room.id), class:"open-room-edit" %>
           <%= link_to '退出', remove_member_open_room_path(@open_room.id), method: :delete, class:"open-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
+          <% end %>
         </div>
       </div>
       <div class="room-team-tag-wrap">
         <p class="team-tag-title">チームタグ</p>
         <ul class="team-tag-list">
-          <li class="team-tag">阪神タイガース</li>
-          <li class="team-tag">東北楽天ゴールデンイーグルス</li>
+          <% @fan_teams.each do |team| %>
+            <li class="team-tag"><%= team.team_name %></li>
+          <% end %>
         </ul>
       </div>
       <div class="room-memo-wrap">
         <p class="room-memo-title">ルームメモ</p>
-        <p class="room-memo">　このチャットルームは阪神ファンがそれぞれ好きな選手やプレーを語るルームです。
-　暴言はやめましょう
-　みんなで仲良く語ろう！
-        </p>
+        <% if @open_room.description == "" %>
+          <p class="room-memo">グループの説明やアピールする文章を書こう！</p>
+        <% else %>
+          <p class="room-memo"><%= @open_room.description %></p>
+        <% end %>
       </div>
     </div>
   </div>
