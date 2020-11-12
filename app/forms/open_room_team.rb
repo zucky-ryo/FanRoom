@@ -2,7 +2,7 @@ class OpenRoomTeam
   include ActiveModel::Model
   attr_accessor :name, :description, :user_id, :fan_team_id
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 20 }
   validate :fan_team_validation
 
   def fan_team_validation
