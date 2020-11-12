@@ -49,7 +49,7 @@ class OpenRoomsController < ApplicationController
 
   # チームタグによるルーム検索
   def search
-    @open_rooms = OpenRoom.includes(:users, :open_messages)
+    @open_rooms = OpenRoom.joins(:open_messages).includes(:users, :open_messages).order("open_messages.id DESC")
     if params[:fan_team_id] != ""
       @fan_team = FanTeam.find(params[:fan_team_id])
       @search_rooms = @open_rooms.select do |r|
