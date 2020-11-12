@@ -1,5 +1,5 @@
 .following-lists {
-  width: 91.6%;
+  width: 100%;
   max-height: 300px;
   overflow: auto;
   display: none;
@@ -8,8 +8,6 @@
   border-right: solid rgb(73, 206, 73) 1px;
   border-left: solid rgb(73, 206, 73) 1px;
   position: absolute;
-  z-index: 1;
-  top: 41px;
 }
 
 .following-list {
@@ -18,6 +16,9 @@
   padding: 2px;
   border-bottom: solid rgb(73, 206, 73) 1px;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   a {
     display: block;
     text-decoration: none;
@@ -26,9 +27,13 @@
   }
 }
 
+.following-list:hover {
+  background-color: rgb(145, 255, 0);
+}
+
 .follower-lists {
-  width: 91.6%;
-  max-height: 300px;
+  width: 100%;
+  max-height: 160px;
   overflow: auto;
   display: none;
   background-color: lightgreen;
@@ -36,8 +41,6 @@
   border-right: solid rgb(73, 206, 73) 1px;
   border-left: solid rgb(73, 206, 73) 1px;
   position: absolute;
-  z-index: 1;
-  top: 41px;
 }
 
 .follower-list {
@@ -46,10 +49,17 @@
   padding: 2px;
   border-bottom: solid rgb(73, 206, 73) 1px;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   a {
     display: block;
     text-decoration: none;
     color: rgb(0, 70, 0);
     font-size: 22px;
   }
+}
+
+.follower-list:hover {
+  background-color: rgb(145, 255, 0);
 }

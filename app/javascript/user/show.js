@@ -37,28 +37,40 @@ $(function(){
       });
     });
 
-    // フォロー/フォロワーをクリックした時リストを表示させる
-    followingUser.click(() => {
-      if (followingLists.css('display') == 'none'){
+    // フォローフォロワーボタンにカーソルを合わせるとリストを表示
+    followingUser.hover(
+      () => {
         followingUser.css('background', 'rgb(253, 54, 28)');
+        followingUser.css('box-shadow', 'none');
         followingLists.css('display', 'block');
-        followerUser.css('background', 'rgb(255, 123, 0)');
-        followerLists.css('display', 'none');
-      }else{
+      },
+      () => {
         followingUser.css('background', 'rgb(255, 123, 0)');
+        followingUser.css('box-shadow', 'gray 1px 1px');
         followingLists.css('display', 'none');
       }
-    });
-    followerUser.click(() => {
-      if (followerLists.css('display') == 'none'){
+    );
+    followerUser.hover(
+      () => {
         followerUser.css('background', 'rgb(253, 54, 28)');
+        followerUser.css('box-shadow', 'none');
         followerLists.css('display', 'block');
-        followingUser.css('background', 'rgb(255, 123, 0)');
-        followingLists.css('display', 'none');
-      }else{
+      },
+      () => {
         followerUser.css('background', 'rgb(255, 123, 0)');
+        followerUser.css('box-shadow', 'gray 1px 1px');
         followerLists.css('display', 'none');
       }
-    });
+    );
   }
 });
+
+
+// $('#member-wrap').hover(
+//   () => {
+//     $('#member-list').css('display', 'block');
+//   },
+//   () => {
+//     $('#member-list').css('display', 'none');
+//   }
+// );
