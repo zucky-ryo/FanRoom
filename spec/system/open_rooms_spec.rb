@@ -158,3 +158,32 @@ RSpec.describe "公開チャットルーム削除機能", type: :system do
     expect(current_path).to eq private_rooms_path
   end
 end
+
+RSpec.describe "公開チャットルームのチームタグ検索機能", type: :system do
+  before do
+    @open_room_user = FactoryBot.create(:open_room_user)
+    FactoryBot.create_list(:open_message, 1, user_id: @open_room_user.user.id, open_room_id: @open_room_user.open_room.id)
+    FactoryBot.create(:open_room_fan_team, open_room_id: @open_room_user.open_room.id, fan_team_id: 1)
+  end
+  
+  it 'オープンチャットルーム一覧ページでチームタグ検索をかけるとそのタグが存在するルームを表示する' do
+    # サインインする
+    sign_in(@open_room_user.user)
+    # 公開チャットルーム一覧ページに遷移する
+    visit open_rooms_path
+    # 正しい情報を入力する
+    select "阪神タイガース", from: "fan_team_id"
+    # 検索ボタンを押す
+    find('input[name="commit"]').click
+    # 検索後のオープンチャットルーム一覧ページへ遷移していることを確認する
+    expect(current_path).to eq search_open_rooms_path
+    # 作成済みのルームが表示されていることを確認する
+    expect(page).to have_content(@open_room_user.open_room.name)
+    # 表示されているルームのルームページに遷移する
+    visit open_room_path(@open_room_user.open_room.id)
+    # 詳細ボタンをクリックする
+    find("#open-description").click
+    # 検索したチームのチーム名が表示されていることを確認する
+    expect(page).to have_content("阪神タイガース")
+  end
+end
