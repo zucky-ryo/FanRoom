@@ -1,4 +1,5 @@
 class OpenMessagesController < ApplicationController
+  before_action :authenticate_user!
   
   # チャネルを利用してメッセージの送信を行う
   def create

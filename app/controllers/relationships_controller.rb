@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_user!
 
   # フォロー機能（userモデルのメソッドを利用）
   def create

@@ -1,4 +1,5 @@
 class OpenRoomsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show, :search]
 
   # ルームをルーム内で送信されたメッセージが新しい順に表示
   def index
