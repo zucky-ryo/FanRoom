@@ -130,3 +130,31 @@ RSpec.describe "公開チャットルーム編集機能", type: :system do
     end
   end
 end
+
+RSpec.describe "公開チャットルーム削除機能", type: :system do
+  before do
+    @open_room_user = FactoryBot.create(:open_room_user)
+    FactoryBot.create_list(:open_message, 1, user_id: @open_room_user.user.id, open_room_id: @open_room_user.open_room.id)
+  end
+  
+  it 'ルームから退出しメンバーが0人になるとルームが削除され、関連するメッセージがすべて削除されていること' do
+    # サインインする
+    sign_in(@open_room_user.user)
+    # 公開チャットルーム一覧ページに遷移する
+    visit open_rooms_path
+    # 作成されたチャットルームへ遷移する
+    click_on(@open_room_user.open_room.name)
+    # メッセージ情報を5つDBに追加する
+    FactoryBot.create_list(:open_message, 5, user_id: @open_room_user.user.id, open_room_id: @open_room_user.open_room.id)
+    # 詳細ボタンをクリックする
+    find("#open-description").click
+    # 退出ボタンをクリックすることで、初期メッセージ1つと作成した5つのメッセージが全て削除されていることを確認する
+    find_link("退出",  href: remove_member_open_room_path(@open_room_user.open_room.id)).click
+    expect{
+      expect(page.accept_confirm).to eq "このルームから退出しますか？\n※ルームメンバーが0人になるとルームは自動的に削除されます"
+      sleep 0.5
+    }.to change { @open_room_user.open_room.open_messages.count }.by(-6)
+    # 参加チャット一覧ページに遷移していることを確認する
+    expect(current_path).to eq private_rooms_path
+  end
+end
