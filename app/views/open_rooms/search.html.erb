@@ -7,7 +7,7 @@
   <div class="open-room-search">
     <%= form_with url: search_open_rooms_path, method: :get, class:"open-search-top", local: true do |f| %>
       <span>　チームタグ：</span>
-      <%= f.collection_select :fan_team_id, FanTeam.all, :id, :team_name, include_blank: "--" %>
+      <%= f.collection_select :fan_team_id, FanTeam.all, :id, :team_name, include_blank: "#{@fan_team.team_name}(解除)" %>
       <br>
       <%= f.submit '検索' %>
     <% end %>
@@ -16,8 +16,9 @@
       <input type="search" class="open-name-search" id="room-name-search">
     </div>
   </div>
+  <p class="search-explain">チームタグ：<span><%= @fan_team.team_name %></span>を含む公開チャットルームを表示中</p>
   <ul class="open-lists" id="room-lists">
-    <%= render partial: 'open_room', collection: @open_rooms %>
+    <%= render partial: 'search_room', collection: @search_rooms %>
   </ul>
 </div>
 

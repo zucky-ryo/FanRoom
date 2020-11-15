@@ -19,7 +19,8 @@
     height: 70%;
     padding: 0 10px;
     background-color: rgb(224, 224, 0);
-    border: solid 1px rgb(224, 224, 0);
+    box-shadow: gray 2px 2px;
+    border-radius: 4px;
     text-decoration: none;
     text-align: center;
     line-height: 47px;
@@ -28,8 +29,11 @@
     top: 15.1%;
     left: 85%;
   }
+  a:hover {
+    background-color: yellow;
+  }
   a:active {
-    border: solid 1px black;
+    box-shadow: none;
   }
 }
 
@@ -48,11 +52,16 @@
     font-size: 17px;
   }
   select {
-    width: 280px;
+    width: 310px;
     height: 30px;
     padding: 1px 5px;
     display: block;
     font-size: 17px;
+  }
+  input {
+    width: 45px;
+    height: 30px;
+    margin-left: 5px;
   }
 }
 
@@ -67,11 +76,23 @@
     font-size: 17px;
   }
   input {
-    width: 280px;
+    width: 310px;
     height: 30px;
     padding: 1px 5px;
+    margin-right: 50px;
     display: block;
     font-size: 17px;
+  }
+}
+
+.search-explain {
+  padding-top: 10px;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  span {
+    color: navy;
+    font-weight: bold;
   }
 }
 
@@ -92,11 +113,21 @@
   }
 }
 
+.open-list:hover {
+  background-color: rgb(211, 211, 211);
+}
+
 .open-room-name {
   padding: 10px;
   margin: 2px 0 0 10px;
   font-size: 20px;
   color: black;
+  span {
+    margin-left: 5px;
+    display: inline-block;
+    font-size: 16px;
+    color: gray;
+  }
 }
 
 .open-room-description {

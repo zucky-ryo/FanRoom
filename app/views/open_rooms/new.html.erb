@@ -15,12 +15,13 @@
         <label class="open-new-text">ルーム名</label>
         <span class="open-new-indispensable">必須</span>
       </div>
-      <%= f.text_area :name, class:"open-new-name", id:"open-name", placeholder:"分かりやすいルーム名を決めよう！", maxlength:"40", autofocus: true %>
+      <%= f.text_area :name, class:"open-new-name", id:"open-name", placeholder:"分かりやすいルーム名を決めよう！", maxlength:"20", autofocus: true %>
     </div>
     <div class="open-new-group">
       <div class="open-new-text-wrap">
         <label class="open-new-text">チームタグ</label>
         <span class="open-new-indispensable">必須</span>
+        <span class="open-team-tag-max">(最大６チームまで登録できます)</span>
       </div>
       <div class="open-new-team-wrap" id="open-team-select">
         <%= f.collection_select "fan_team_id[][id]", FanTeam.all, :id, :team_name, {include_blank: "--"}, {id:"open-new-team"} %>
