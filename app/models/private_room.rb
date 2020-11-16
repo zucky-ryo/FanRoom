@@ -1,0 +1,2 @@
+class PrivateRoom < ApplicationRecord
+end

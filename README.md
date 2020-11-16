@@ -78,9 +78,10 @@ belongs_to :open_room
 
 ## private_roomsテーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
+| Column        | Type   | Options     |
+| ------------- | ------ | ----------- |
+| name          | string | null: false |
+| description   | text   | null: false |
 
 ### Association
 

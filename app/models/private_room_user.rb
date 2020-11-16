@@ -1,0 +1,2 @@
+class PrivateRoomUser < ApplicationRecord
+end

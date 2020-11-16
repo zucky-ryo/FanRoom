@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_053939) do
+ActiveRecord::Schema.define(version: 2020_11_16_063239) do
 
   create_table "fan_teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "team_name", null: false
@@ -55,6 +55,33 @@ ActiveRecord::Schema.define(version: 2020_11_03_053939) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "private_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "user_id"
+    t.bigint "private_room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["private_room_id"], name: "index_private_messages_on_private_room_id"
+    t.index ["user_id"], name: "index_private_messages_on_user_id"
+  end
+
+  create_table "private_room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "private_room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["private_room_id"], name: "index_private_room_users_on_private_room_id"
+    t.index ["user_id", "private_room_id"], name: "index_private_room_users_on_user_id_and_private_room_id", unique: true
+    t.index ["user_id"], name: "index_private_room_users_on_user_id"
+  end
+
+  create_table "private_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "follow_id"
@@ -88,6 +115,10 @@ ActiveRecord::Schema.define(version: 2020_11_03_053939) do
   add_foreign_key "open_room_fan_teams", "open_rooms"
   add_foreign_key "open_room_users", "open_rooms"
   add_foreign_key "open_room_users", "users"
+  add_foreign_key "private_messages", "private_rooms"
+  add_foreign_key "private_messages", "users"
+  add_foreign_key "private_room_users", "private_rooms"
+  add_foreign_key "private_room_users", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
   add_foreign_key "users", "fan_teams"
