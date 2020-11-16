@@ -1,35 +1,12 @@
-.title-contents {
+.my-room-title-wrap {
   padding-top: 110px;
-  width: 100vw;
-  height: 60vh;
-  background-image: image-url('back-ground.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  color: white;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-  h1 {
-    margin: 0 0 30px 10px;
-    font-size: 50px;
-    font-weight: bold;
-  }
-  p {
-    margin: 0 0 5px 10px;
-    font-size: 25px;
-    line-height: 40px;
-  }
 }
 
 .my-room-title {
   width: 100vw;
-  height: 10vh;
-  display: block;
+  height: 65px;
+  padding-top: 10px;
   text-align: center;
-  line-height: 10vh;
   font-size: 30px;
   font-weight: bold;
   color: white;
@@ -47,16 +24,36 @@
 }
 
 .my-private-title {
-  height: 8vh;
+  height: 55px;
+  padding-top: 8px;
   display: block;
   text-align: center;
-  line-height: 8vh;
   font-size: 25px;
   background-color: lightblue;
 }
 
 .my-private-lists {
+  height: 460px;
   margin-top: 10px;
+  overflow: auto;
+}
+
+.my-private-new-btn {
+  width: 70%;
+  padding: 5px;
+  margin: 5px auto 15px;
+  display: block;
+  background-color: white;
+  border: solid 1px black;
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.my-private-new-btn:hover {
+  background-color: rgb(211, 211, 211);
 }
 
 .my-private-list {
@@ -68,6 +65,10 @@
   }
 }
 
+.my-private-list:hover {
+  background-color: rgb(211, 211, 211);
+}
+
 .my-open-room {
   width: 50vw;
   background-color: lightcyan;
@@ -75,16 +76,35 @@
 }
 
 .my-open-title {
-  height: 8vh;
+  height: 55px;
+  padding-top: 8px;
   display: block;
   text-align: center;
-  line-height: 8vh;
   font-size: 25px;
   background-color: lightblue;
 }
 
 .my-open-lists {
   margin-top: 10px;
+  overflow: auto;
+}
+
+.my-open-new-btn {
+  width: 70%;
+  padding: 5px;
+  margin: 5px auto 15px;
+  display: block;
+  background-color: white;
+  border: solid 1px black;
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.my-open-new-btn:hover {
+  background-color: rgb(211, 211, 211);
 }
 
 .my-open-list {
@@ -94,6 +114,10 @@
   a {
     text-decoration: none;
   }
+}
+
+.my-open-list:hover {
+  background-color: rgb(211, 211, 211);
 }
 
 .my-room-name {
