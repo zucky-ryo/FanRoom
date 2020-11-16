@@ -1,0 +1,50 @@
+<%= render "shared/header" %>
+
+<%# 画面上部のタイトル部分 %>
+<div class="title-contents">
+  <h1>プロ野球ファンが集まるチャットアプリ</h1>
+  <p>公開チャットルームに参加してプロ野球について語ろう！</p>
+  <p>お気に入りの画像や動画を投稿しよう！</p>
+</div>
+
+<div class="top-main">
+  <div class="top-open-room">
+    <h2 class="top-open-title">公開チャット</h2>
+    <div class="top-open-index-wrap">
+      <h3>公開チャットルームに参加しよう！</h3>
+      <div class="top-open-index-main">
+        <%= image_tag "open-index.png", class:"open-index" %>
+        <div class="open-index-content">
+          <div class="open-first-content">
+            <p>ルーム一覧から</p>
+            <p>気になるチャットルームに</p>
+            <p>参加してみよう！！</p>
+          </div>
+          <div class="open-second-content">
+            <p>好きなチームやルーム名で</p>
+            <p>検索することもできるよ！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="top-open-show-wrap">
+      <h3>公開チャットルームで会話しよう！</h3>
+      <div class="top-open-show-main">
+        <div class="open-show-content">
+          <div class="open-show-first-content">
+            <p>ルームメンバーと</p>
+            <p>一緒にみんなでワイワイ</p>
+            <p>盛り上がろう！！</p>
+          </div>
+          <div class="open-show-second-content">
+            <p>気になったら参加前に</p>
+            <p>チャットを覗いてみよう！</p>
+          </div>
+        </div>
+        <%= image_tag "open-show.png", class:"open-show" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

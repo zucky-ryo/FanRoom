@@ -20,7 +20,7 @@
   </div>
   <div class="header-bottom">
     <ul class="link-list">
-      <li><a href="">参加チャット</a></li>
+      <li><%= link_to '参加チャット', private_rooms_path, id: "header-my-room" %></li>
       <li><%= link_to '公開チャット', open_rooms_path, id: "header-open-room" %></li>
       <li><a href="">投稿一覧</a></li>
     <% if user_signed_in? %>

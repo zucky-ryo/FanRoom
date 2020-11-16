@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
                        registrations: "users/registrations",
                      }
-  root to: "private_rooms#index"
+  root to: "top#index"
   resources :users, only: :show
   resources :relationships, only: [:create, :destroy]
   resources :open_rooms, except: [:delete] do
