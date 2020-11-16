@@ -42,13 +42,28 @@ header {
   margin-top: 5px;
   margin-right: 40px;
   li {
+    min-width: 130px;
     display: inline-block;
-    padding: 10px;
+    margin: 8px 0 0 10px;
+    background-color: lightyellow;
+    border-radius: 50px;
+    cursor: pointer;
     a {
-      font-size: 20px;
+      padding: 5px 20px;
+      display: block;
+      text-align: center;
+      font-size: 18px;
       color: black;
     }
   }
+  li:hover{
+    background-color: yellow;
+  }
+}
+
+.header-sign-out:hover {
+  background-color: rgb(255, 116, 116);
+  border-radius: 50px;
 }
 
 .header-bottom {
