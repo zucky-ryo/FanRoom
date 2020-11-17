@@ -16,5 +16,5 @@ Rails.application.routes.draw do
       get "search"
     end
   end
-  resources :private_rooms, only: [:index, :new, :create]
+  resources :private_rooms, only: [:index, :new, :create, :show]
 end

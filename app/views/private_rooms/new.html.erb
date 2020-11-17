@@ -1,6 +1,6 @@
 <%= render "shared/second-header"%>
 
-<%= form_with model: @open_room, url: open_rooms_path, class: "private-new-form", local: true do |f| %>
+<%= form_with model: @private_room, url: private_rooms_path, class: "private-new-form", local: true do |f| %>
   <div class="private-new-wrap">
     <div class="private-new-header">
       <h1 class="private-new-title">
@@ -8,7 +8,8 @@
       </h1>
     </div>
 
-    <%# <%= render 'shared/error_messages', model: @open_room %>
+    <%= render 'shared/error_messages', model: @private_room %>
+
     <div class="private-new-group">
       <div class="private-new-text-wrap">
         <label class="private-new-text">ルームメンバー</label>
