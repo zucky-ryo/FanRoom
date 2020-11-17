@@ -1,6 +1,7 @@
 class PrivateRoomsController < ApplicationController
   def index
     @private_rooms = current_user.private_rooms.joins(:private_messages).includes(:users, :private_messages).order("private_messages.id DESC")
+    @my_open_rooms = current_user.open_rooms.joins(:open_messages).includes(:users, :open_messages).order("open_messages.id DESC")
   end
 
   def new
