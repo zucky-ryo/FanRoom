@@ -11,6 +11,8 @@ require("../user/show")
 require("../open_room/new")
 require("../open_room/index")
 require("../open_room/show")
+require("../private_room/index")
+require("../private_room/show")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

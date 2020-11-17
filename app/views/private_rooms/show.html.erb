@@ -17,7 +17,7 @@
 
   <div class="chat-main" id="scroll">
     <div id="inner-scroll">
-      <% if user_signed_in?%>
+      <% if user_signed_in? %>
         <p class="user-id-hidden" id="id-hidden"><%= current_user.id %></p>
       <% end %>
       <ul class="message-lists" id="open-message-lists">
@@ -62,6 +62,14 @@
           <%= link_to '退出', remove_member_open_room_path(@private_room.id), method: :delete, class:"open-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
           <% end %>
         </div>
+      </div>
+      <div class="room-name-wrap">
+        <p class="room-name-title">ルーム名</p>
+        <% if @private_room.name == "" %>
+          <p class="room-name-main">ルーム名を設定しよう！</p>
+        <% else %>
+          <p class="room-name-main"><%= @private_room.name %></p>
+        <% end %>
       </div>
       <div class="room-memo-wrap">
         <p class="room-memo-title">ルームメモ</p>
