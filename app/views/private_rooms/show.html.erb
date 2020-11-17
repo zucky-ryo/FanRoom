@@ -1,0 +1,87 @@
+<div class="chat-room-all">
+  <div class="chat-header">
+    <%= link_to '', private_rooms_path, class:"fas fa-angle-double-left back-btn" %>
+    <% if @private_room.name == "" %>
+      <h1 class="room-name">
+      <% @users.each_with_index do |user, i| %>
+        <%= "," if i != 0 && user != current_user %>
+        <%= user.nickname if user != current_user %>
+      <% end %>
+      </h1>
+    <% else %>
+      <h1 class="room-name"><%= @private_room.name %></h1>
+    <% end %>
+    <p class="room-description" id="open-description">詳細</p>
+    <p class="room-description-close" id="open-description-close">閉じる</p>
+  </div>
+
+  <div class="chat-main" id="scroll">
+    <div id="inner-scroll">
+      <% if user_signed_in?%>
+        <p class="user-id-hidden" id="id-hidden"><%= current_user.id %></p>
+      <% end %>
+      <ul class="message-lists" id="open-message-lists">
+        <% @private_messages.each do |private_message| %>
+          <% if current_user == private_message.user %>
+            <li class="my-message-list">
+              <div class="my-message-main">
+                <p class="my-message-time"><%= private_message.created_at.strftime("%-H:%M") %></p>
+                <p class="my-message-box"><%= private_message.content %></p>
+              </div>
+            </li>
+          <% else %>
+            <li class="message-list">
+              <p class="message-user"><%= private_message.user.nickname %></p>
+              <div class="message-main">
+                <p class="message-box"><%= private_message.content %></p>
+                <p class="message-time"><%= private_message.created_at.strftime("%-H:%M") %></p>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="open-room-second-main" id="open-second-main">
+    <div class="open-room-second-wrap">
+      <div class="room-head-wrap">
+        <div class="room-member-wrap" id="member-wrap">
+          <p class="room-member-title">メンバー：</p>
+          <p class="room-member-length"><%= @private_room.users.length %>人</p>
+          <span class="room-member-pulldown">▼</span>
+          <ul class="room-member-list" id="member-list">
+            <% @users.each do |user| %>
+              <%= link_to user.nickname, user_path(user.id), class:"room-member" %>
+            <% end %>
+          </ul>
+        </div>
+        <div class="room-btn-wrap">
+          <% if @users.include?(current_user) %>
+          <%= link_to '編集', edit_open_room_path(@private_room.id), class:"open-room-edit" %>
+          <%= link_to '退出', remove_member_open_room_path(@private_room.id), method: :delete, class:"open-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
+          <% end %>
+        </div>
+      </div>
+      <div class="room-memo-wrap">
+        <p class="room-memo-title">ルームメモ</p>
+        <% if @private_room.description == "" %>
+          <p class="room-memo">グループの説明やアピールする文章を書こう！</p>
+        <% else %>
+          <p class="room-memo"><%= @private_room.description %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%# メッセージ送信フォーム（ルーム未参加時は参加を促すメッセージを表示） %>
+  <%= form_with model: @private_message, url: open_room_open_messages_path(@private_room.id), class:"chat-footer", id:"open-chat-footer" do |f| %>
+    <% if @private_room.users.include?(current_user) %>
+      <%= f.text_area :content, class:"new-message-box", placeholder:"メッセージを送信しよう！" %>
+      <%= f.submit "送信", class:"new-message-submit" %>
+    <% else %>
+      <p class="room-before-text" id="before-enter-text">ルームに入室してチャットに参加しよう！</p>
+      <%= link_to '入室', add_member_open_room_path(@private_room.id), method: :post, class:"enter-open-room" %>
+    <% end %>
+  <% end %>
+</div>

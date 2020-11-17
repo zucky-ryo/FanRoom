@@ -1,20 +1,16 @@
 <%= render "shared/header" %>
 
-<%# 画面上部のタイトル部分 %>
-<div class="title-contents">
-  <h1>プロ野球ファンが集まるチャットアプリ</h1>
-  <p>公開チャットルームに参加してプロ野球について語ろう！</p>
-  <p>お気に入りの画像や動画を投稿しよう！</p>
+<%# 参加チャットルーム一覧 %>
+<div class="my-room-title-wrap">
+  <h2 class="my-room-title">参加チャットルーム</h2>
 </div>
-
-<%# 参加チャットルーム一覧部分 %>
-<h2 class="my-room-title">参加チャットルーム</h2>
 <div class="my-room">
   <%# 参加プライベートルーム部分 %>
   <div class="my-private-room">
-    <h3 class="my-private-title">プライベートルーム</h3>
-    <div class="my-private-lists">
-      <div class="my-private-list">
+    <h3 class="my-private-title">プライベートチャット</h3>
+    <ul class="my-private-lists">
+      <%= link_to '＋ ルーム作成', new_private_room_path, class:"my-private-new-btn" %>
+      <li class="my-private-list">
         <a href="">
           <h4 class="my-room-name">RoomName</h4>
           <div class="my-room-description">
@@ -22,8 +18,8 @@
             <p class="my-room-at">2020/10/26</p>
           </div>
         </a>
-      </div>
-      <div class="my-private-list">
+      </li>
+      <li class="my-private-list">
         <a href="">
           <h4 class="my-room-name">RoomName</h4>
           <div class="my-room-description">
@@ -31,13 +27,50 @@
             <p class="my-room-at">2020/10/26</p>
           </div>
         </a>
-      </div>
-    </div>
+      </li>
+      <li class="my-private-list">
+        <a href="">
+          <h4 class="my-room-name">RoomName</h4>
+          <div class="my-room-description">
+            <p class="my-room-member"><i class="fas fa-user-alt my-member-icon"></i>3</p>
+            <p class="my-room-at">2020/10/26</p>
+          </div>
+        </a>
+      </li>
+      <li class="my-private-list">
+        <a href="">
+          <h4 class="my-room-name">RoomName</h4>
+          <div class="my-room-description">
+            <p class="my-room-member"><i class="fas fa-user-alt my-member-icon"></i>3</p>
+            <p class="my-room-at">2020/10/26</p>
+          </div>
+        </a>
+      </li>
+      <li class="my-private-list">
+        <a href="">
+          <h4 class="my-room-name">RoomName</h4>
+          <div class="my-room-description">
+            <p class="my-room-member"><i class="fas fa-user-alt my-member-icon"></i>3</p>
+            <p class="my-room-at">2020/10/26</p>
+          </div>
+        </a>
+      </li>
+      <li class="my-private-list">
+        <a href="">
+          <h4 class="my-room-name">RoomName</h4>
+          <div class="my-room-description">
+            <p class="my-room-member"><i class="fas fa-user-alt my-member-icon"></i>3</p>
+            <p class="my-room-at">2020/10/26</p>
+          </div>
+        </a>
+      </li>
+    </ul>
   </div>
   <%# 参加オープンルーム部分 %>
   <div class="my-open-room">
-    <h3 class="my-open-title">公開ルーム</h3>
+    <h3 class="my-open-title">公開チャットルーム</h3>
     <ul class="my-open-lists">
+      <%= link_to "＋ ルーム作成", new_open_room_path, class:"my-open-new-btn" %>
       <li class="my-open-list">
         <a href="">
           <h4 class="my-room-name">RoomName</h4>

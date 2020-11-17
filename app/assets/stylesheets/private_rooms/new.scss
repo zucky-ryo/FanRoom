@@ -1,0 +1,135 @@
+.private-new-form {
+  width: 100vw;
+  min-width: 800px;
+  background-color: rgb(194, 224, 235);
+  display: flex;
+  justify-content: center;
+}
+
+.private-new-wrap {
+  width: 65%;
+  padding-bottom: 5px;
+  background-color: rgb(250, 254, 255);
+}
+
+.private-new-header {
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.private-new-title {
+  line-height: 100px;
+  background-color: rgb(0, 81, 255);
+  color: white;
+  font-weight: bold;
+}
+
+.private-new-group {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.private-new-text-wrap {
+  width: 100%;
+  height: 20%;
+}
+
+.private-new-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.private-new-indispensable {
+  padding: 2px;
+  font-size: 15px;
+  color: white;
+  background-color: red;
+}
+
+.private-new-indispensable-not {
+  padding: 2px;
+  font-size: 15px;
+  background-color: lightblue;
+}
+
+.private-new-name-indisable {
+  padding-left: 10px;
+  color: red;
+}
+
+.private-new-member-box {
+  max-height: 160px;
+  margin-top: 5px;
+  background-color: rgb(222, 255, 190);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  input {
+    width: 17px;
+    height: 17px;
+    margin-right: 8px;
+  }
+  label {
+    padding-left: 10px;
+    font-size: 25px;
+    color: black;
+  }
+}
+
+.private-new-name {
+  width: 100%;
+  margin-top: 5px;
+  height: 50px;
+  padding: 11px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+
+.private-new-content {
+  width: 100%;
+  margin-top: 5px;
+  height: 350px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+
+.private-new-submit {
+  width: 50%;
+  margin: 50px auto;
+}
+
+.private-new-submit-btn {
+  width: 100%;
+  background: rgb(0, 162, 255);
+  border: 1px solid rgb(0, 162, 255);
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.private-room-back-btn {
+  width: 100%;
+  margin-top: 10px;
+  background: green;
+  border: 1px solid green;
+  color: white;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}

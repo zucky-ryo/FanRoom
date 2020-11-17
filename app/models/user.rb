@@ -15,6 +15,10 @@ class User < ApplicationRecord
   has_many :open_rooms, through: :open_room_users, dependent: :destroy
   has_many :open_messages, dependent: :destroy
 
+  has_many :private_room_users
+  has_many :private_rooms, through: :private_room_users, dependent: :destroy
+  has_many :private_messages, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
