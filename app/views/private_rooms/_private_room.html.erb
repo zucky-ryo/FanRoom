@@ -1,6 +1,8 @@
 <li class="my-private-list">
   <%= link_to private_room_path(private_room.id) do %>
-    <% if private_room.name == "" %>
+    <% if private_room.users.length == 1 %>
+      <h4 class="my-room-name">メンバーがいません</h4>
+    <% elsif private_room.name == "" %>
       <h4 class="my-room-name">
       <% other_users = private_room.users.select { |user| user != current_user } %>
       <% other_users.each_with_index do |user, i| %>

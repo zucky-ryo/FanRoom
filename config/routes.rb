@@ -18,5 +18,8 @@ Rails.application.routes.draw do
   end
   resources :private_rooms, except: [:delete] do
     resources :private_messages, only: :create
+    member do
+      delete "remove_member"
+    end
   end
 end

@@ -47,6 +47,18 @@ class PrivateRoomsController < ApplicationController
     end
   end
 
+  # ルームから退出し、ルームメンバーが0になったらルームを自動的に削除する
+  def remove_member
+    @private_room = PrivateRoom.find(params[:id])
+    @private_room_user = PrivateRoomUser.find_by(private_room_id: params[:id], user_id: current_user.id)
+    if @private_room_user.destroy
+      if @private_room.users.length == 0
+        @private_room.destroy
+      end
+      redirect_to private_rooms_path
+    end
+  end
+
   private
 
   def private_room_params

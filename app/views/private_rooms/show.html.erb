@@ -1,7 +1,9 @@
 <div class="chat-room-all">
   <div class="chat-header">
     <%= link_to '', private_rooms_path, class:"fas fa-angle-double-left back-btn" %>
-    <% if @private_room.name == "" %>
+    <% if @users.length == 1 %>
+      <h1 class="room-name">メンバーがいません</h1>
+    <% elsif @private_room.name == "" %>
       <h1 class="room-name">
       <% other_users = @users.select { |user| user != current_user } %>
       <% other_users.each_with_index do |user, i| %>
@@ -60,7 +62,7 @@
         <div class="room-btn-wrap">
           <% if @users.include?(current_user) %>
           <%= link_to '編集', edit_private_room_path(@private_room.id), class:"private-room-edit" %>
-          <%= link_to '退出', remove_member_open_room_path(@private_room.id), method: :delete, class:"private-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
+          <%= link_to '退出', remove_member_private_room_path(@private_room.id), method: :delete, class:"private-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
           <% end %>
         </div>
       </div>
