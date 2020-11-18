@@ -43,7 +43,7 @@
       <div class="room-head-wrap">
         <div class="room-member-wrap" id="member-wrap">
           <p class="room-member-title">メンバー：</p>
-          <p class="room-member-length"><%= @open_room.users.length %>人</p>
+          <p class="room-member-length"><%= @users.length %>人</p>
           <span class="room-member-pulldown">▼</span>
           <ul class="room-member-list" id="member-list">
             <% @users.each do |user| %>

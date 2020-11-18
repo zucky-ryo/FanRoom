@@ -3,9 +3,10 @@
     <%= link_to '', private_rooms_path, class:"fas fa-angle-double-left back-btn" %>
     <% if @private_room.name == "" %>
       <h1 class="room-name">
-      <% @users.each_with_index do |user, i| %>
-        <%= "," if i != 0 && user != current_user %>
-        <%= user.nickname if user != current_user %>
+      <% other_users = @users.select { |user| user != current_user } %>
+      <% other_users.each_with_index do |user, i| %>
+        <%= "," if i != 0 %>
+        <%= user.nickname %>
       <% end %>
       </h1>
     <% else %>
@@ -48,7 +49,7 @@
       <div class="room-head-wrap">
         <div class="room-member-wrap" id="member-wrap">
           <p class="room-member-title">メンバー：</p>
-          <p class="room-member-length"><%= @private_room.users.length %>人</p>
+          <p class="room-member-length"><%= @users.length %>人</p>
           <span class="room-member-pulldown">▼</span>
           <ul class="room-member-list" id="member-list">
             <% @users.each do |user| %>
@@ -58,7 +59,7 @@
         </div>
         <div class="room-btn-wrap">
           <% if @users.include?(current_user) %>
-          <%= link_to '編集', edit_open_room_path(@private_room.id), class:"private-room-edit" %>
+          <%= link_to '編集', edit_private_room_path(@private_room.id), class:"private-room-edit" %>
           <%= link_to '退出', remove_member_open_room_path(@private_room.id), method: :delete, class:"private-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
           <% end %>
         </div>

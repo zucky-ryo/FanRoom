@@ -31,9 +31,29 @@ class PrivateRoomsController < ApplicationController
     @private_messages = @private_room.private_messages.includes(:user)
   end
 
+  def edit
+    @private_room = PrivateRoom.find(params[:id])
+    @users = @private_room.users
+  end
+
+  # ルーム名とルームメモの更新のみのためフォームオブジェクトは利用しない
+  def update
+    @private_room = PrivateRoom.find(params[:id])
+    @users = @private_room.users
+    if @private_room.update(private_room_update_params)
+      redirect_to private_room_path(@private_room.id)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def private_room_params
     params.require(:private_room_member).permit(:name, :description, user_ids: [])
+  end
+
+  def private_room_update_params
+    params.require(:private_room).permit(:name, :description)
   end
 end

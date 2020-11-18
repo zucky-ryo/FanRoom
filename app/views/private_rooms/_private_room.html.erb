@@ -1,12 +1,13 @@
 <li class="my-private-list">
   <%= link_to private_room_path(private_room.id) do %>
     <% if private_room.name == "" %>
-    <h4 class="my-room-name">
-    <% private_room.users.each_with_index do |user, i| %>
-      <%= "," if i != 0 && user != current_user %>
-      <%= user.nickname if user != current_user %>
-    <% end %>
-    </h4>
+      <h4 class="my-room-name">
+      <% other_users = private_room.users.select { |user| user != current_user } %>
+      <% other_users.each_with_index do |user, i| %>
+        <%= "," if i != 0 %>
+        <%= user.nickname %>
+      <% end %>
+      </h4>
     <% else %>
       <h4 class="my-room-name"><%= private_room.name %></h4>
     <% end %>
@@ -18,5 +19,5 @@
         <p class="my-room-at"><%= private_room.private_messages[-1].created_at.strftime("%Y/%m/%d %-H:%M") %></p>
       <% end %>
     </div>
-  <% end%>
+  <% end %>
 </li>
