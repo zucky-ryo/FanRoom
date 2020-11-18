@@ -11,8 +11,8 @@
     <% else %>
       <h1 class="room-name"><%= @private_room.name %></h1>
     <% end %>
-    <p class="room-description" id="open-description">詳細</p>
-    <p class="room-description-close" id="open-description-close">閉じる</p>
+    <p class="room-description" id="private-description">詳細</p>
+    <p class="room-description-close" id="private-description-close">閉じる</p>
   </div>
 
   <div class="chat-main" id="scroll">
@@ -20,7 +20,7 @@
       <% if user_signed_in? %>
         <p class="user-id-hidden" id="id-hidden"><%= current_user.id %></p>
       <% end %>
-      <ul class="message-lists" id="open-message-lists">
+      <ul class="message-lists" id="private-message-lists">
         <% @private_messages.each do |private_message| %>
           <% if current_user == private_message.user %>
             <li class="my-message-list">
@@ -43,8 +43,8 @@
     </div>
   </div>
 
-  <div class="open-room-second-main" id="open-second-main">
-    <div class="open-room-second-wrap">
+  <div class="private-room-second-main" id="private-second-main">
+    <div class="private-room-second-wrap">
       <div class="room-head-wrap">
         <div class="room-member-wrap" id="member-wrap">
           <p class="room-member-title">メンバー：</p>
@@ -58,8 +58,8 @@
         </div>
         <div class="room-btn-wrap">
           <% if @users.include?(current_user) %>
-          <%= link_to '編集', edit_open_room_path(@private_room.id), class:"open-room-edit" %>
-          <%= link_to '退出', remove_member_open_room_path(@private_room.id), method: :delete, class:"open-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
+          <%= link_to '編集', edit_open_room_path(@private_room.id), class:"private-room-edit" %>
+          <%= link_to '退出', remove_member_open_room_path(@private_room.id), method: :delete, class:"private-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
           <% end %>
         </div>
       </div>
@@ -83,13 +83,8 @@
   </div>
 
   <%# メッセージ送信フォーム（ルーム未参加時は参加を促すメッセージを表示） %>
-  <%= form_with model: @private_message, url: open_room_open_messages_path(@private_room.id), class:"chat-footer", id:"open-chat-footer" do |f| %>
-    <% if @private_room.users.include?(current_user) %>
-      <%= f.text_area :content, class:"new-message-box", placeholder:"メッセージを送信しよう！" %>
-      <%= f.submit "送信", class:"new-message-submit" %>
-    <% else %>
-      <p class="room-before-text" id="before-enter-text">ルームに入室してチャットに参加しよう！</p>
-      <%= link_to '入室', add_member_open_room_path(@private_room.id), method: :post, class:"enter-open-room" %>
-    <% end %>
+  <%= form_with model: @private_message, url: private_room_private_messages_path(@private_room.id), class:"chat-footer", id:"private-chat-footer" do |f| %>
+    <%= f.text_area :content, class:"new-message-box", placeholder:"メッセージを送信しよう！" %>
+    <%= f.submit "送信", class:"new-message-submit" %>
   <% end %>
 </div>

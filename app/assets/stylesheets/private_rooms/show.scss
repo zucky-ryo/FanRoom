@@ -1,3 +1,47 @@
+.private-room-second-main {
+  width: 100vw;
+  height: calc(100vh - 70px);
+  background-color: rgba(181, 232, 252, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 70px;
+  display: none;
+}
+
+.private-room-second-wrap {
+  width: 65vw;
+  height: calc(100vh - 70px);
+  background-color: rgb(252, 252, 130);
+  overflow: auto;
+}
+
+.private-room-edit {
+  background-color: rgb(0, 102, 255);
+  color: white;
+}
+
+.private-room-edit:hover {
+  background-color: blue;
+}
+
+.private-room-edit:active {
+  box-shadow: none;
+}
+
+.private-room-exit {
+  background-color: rgb(253, 70, 70);
+  color: white;
+}
+.private-room-exit:hover {
+  background-color: red;
+}
+
+.private-room-exit:active {
+  box-shadow: none;
+}
+
 .room-name-wrap {
   padding: 15px;
 }

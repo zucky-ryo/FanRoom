@@ -5,8 +5,8 @@ $(function(){
     $('#scroll').prop({ scrollTop: $("#scroll").prop("scrollHeight") });
 
     // メッセージ入力欄を行数に合わせて広げる
-    const textArea = $('#open_message_content');
-    const roomFooter = $('#open-chat-footer');
+    const textArea = $('#private_message_content');
+    const roomFooter = $('#private-chat-footer');
     const boxHeight = parseInt(textArea.css('height'));
     const footerHeight = parseInt(roomFooter.css('height'));
     textArea.keyup(() => {
@@ -18,23 +18,23 @@ $(function(){
     });
 
     // メッセージ入力後Ctrl + Enter又は⌘ + Enterで送信
-    $('#open_message_content').keydown((e) => {
+    $('#private_message_content').keydown((e) => {
       if ((e.ctrlKey || e.metaKey) && e.keyCode === 13) {
-        $('#open-chat-footer').submit();
+        $('#private-chat-footer').submit();
         return false;
       }
     });
 
     // ルームの詳細ボタンを押すと詳細が表示される
-    $('#open-description').click(() => {
-      $('#open-second-main').fadeIn(300).css('display','flex');
-      $('#open-description').css('display', 'none');
-      $('#open-description-close').css('display', 'block');
+    $('#private-description').click(() => {
+      $('#private-second-main').fadeIn(300).css('display','flex');
+      $('#private-description').css('display', 'none');
+      $('#private-description-close').css('display', 'block');
     });
-    $('#open-description-close').click(() => {
-      $('#open-second-main').fadeOut(300)
-      $('#open-description-close').css('display', 'none');
-      $('#open-description').css('display', 'block');
+    $('#private-description-close').click(() => {
+      $('#private-second-main').fadeOut(300)
+      $('#private-description-close').css('display', 'none');
+      $('#private-description').css('display', 'block');
     });
 
     // 詳細のメンバーにカーソルを合わせるとメンバーリストが表示される
