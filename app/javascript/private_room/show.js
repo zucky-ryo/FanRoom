@@ -32,7 +32,8 @@ $(function(){
       $('#private-description-close').css('display', 'block');
     });
     $('#private-description-close').click(() => {
-      $('#private-second-main').fadeOut(300)
+      $('#private-second-main').fadeOut(200);
+      $('#private-third-main').fadeOut(500);
       $('#private-description-close').css('display', 'none');
       $('#private-description').css('display', 'block');
     });
@@ -46,6 +47,10 @@ $(function(){
         $('#member-list').css('display', 'none');
       }
     );
+
+    $('#add-member-btn').click(() => {
+      $('#private-third-main').fadeIn(300).css('display','flex');
+    });
   }
 });
 

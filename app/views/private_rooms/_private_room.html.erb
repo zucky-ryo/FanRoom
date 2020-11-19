@@ -16,9 +16,9 @@
     <div class="my-room-description">
       <p class="my-room-member"><i class="fas fa-user-alt my-member-icon"></i><%= private_room.users.length %></p>
       <% if private_room.private_messages[0].created_at.strftime("%Y/%m/%d") == Date.today.strftime("%Y/%m/%d") %>
-        <p class="my-room-at">Today<%= private_room.private_messages[-1].created_at.strftime(" %-H:%M") %></p>
+        <p class="my-room-at">Today<%= private_room.private_messages[0].created_at.strftime(" %-H:%M") %></p>
       <% else %>
-        <p class="my-room-at"><%= private_room.private_messages[-1].created_at.strftime("%Y/%m/%d %-H:%M") %></p>
+        <p class="my-room-at"><%= private_room.private_messages[0].created_at.strftime("%Y/%m/%d %-H:%M") %></p>
       <% end %>
     </div>
   <% end %>

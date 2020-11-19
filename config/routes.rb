@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :open_rooms, except: [:delete] do
     resources :open_messages, only: :create
     member do
-      post "add_member"
-      delete "remove_member"
+      post "join"
+      delete "exit"
     end
     collection do
       get "search"
@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   resources :private_rooms, except: [:delete] do
     resources :private_messages, only: :create
     member do
-      delete "remove_member"
+      post "add_member"
+      delete "exit"
     end
   end
 end

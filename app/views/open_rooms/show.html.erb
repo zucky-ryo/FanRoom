@@ -38,6 +38,7 @@
     </div>
   </div>
 
+  <%# ルームの詳細情報の表示 %>
   <div class="open-room-second-main" id="open-second-main">
     <div class="open-room-second-wrap">
       <div class="room-head-wrap">
@@ -54,7 +55,7 @@
         <div class="room-btn-wrap">
           <% if @users.include?(current_user) %>
           <%= link_to '編集', edit_open_room_path(@open_room.id), class:"open-room-edit" %>
-          <%= link_to '退出', remove_member_open_room_path(@open_room.id), method: :delete, class:"open-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
+          <%= link_to '退出', exit_open_room_path(@open_room.id), method: :delete, class:"open-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
           <% end %>
         </div>
       </div>
@@ -84,7 +85,7 @@
       <%= f.submit "送信", class:"new-message-submit" %>
     <% else %>
       <p class="room-before-text" id="before-enter-text">ルームに入室してチャットに参加しよう！</p>
-      <%= link_to '入室', add_member_open_room_path(@open_room.id), method: :post, class:"enter-open-room" %>
+      <%= link_to '入室', join_open_room_path(@open_room.id), method: :post, class:"enter-open-room" %>
     <% end %>
   <% end %>
 </div>

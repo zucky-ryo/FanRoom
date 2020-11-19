@@ -46,23 +46,27 @@
     </div>
   </div>
 
+  <%# ルームの詳細情報の表示 %>
   <div class="private-room-second-main" id="private-second-main">
     <div class="private-room-second-wrap">
       <div class="room-head-wrap">
-        <div class="room-member-wrap" id="member-wrap">
-          <p class="room-member-title">メンバー：</p>
-          <p class="room-member-length"><%= @users.length %>人</p>
-          <span class="room-member-pulldown">▼</span>
-          <ul class="room-member-list" id="member-list">
-            <% @users.each do |user| %>
-              <%= link_to user.nickname, user_path(user.id), class:"room-member" %>
-            <% end %>
-          </ul>
+        <div class="room-member-main">
+          <div class="room-member-wrap" id="member-wrap">
+            <p class="room-member-title">メンバー：</p>
+            <p class="room-member-length"><%= @users.length %>人</p>
+            <span class="room-member-pulldown">▼</span>
+            <ul class="room-member-list" id="member-list">
+              <% @users.each do |user| %>
+                <%= link_to user.nickname, user_path(user.id), class:"room-member" %>
+              <% end %>
+            </ul>
+          </div>
+          <p class="add-member-title" id="add-member-btn">追加</p>
         </div>
         <div class="room-btn-wrap">
           <% if @users.include?(current_user) %>
           <%= link_to '編集', edit_private_room_path(@private_room.id), class:"private-room-edit" %>
-          <%= link_to '退出', remove_member_private_room_path(@private_room.id), method: :delete, class:"private-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
+          <%= link_to '退出', exit_private_room_path(@private_room.id), method: :delete, class:"private-room-exit", data: { confirm: "このルームから退出しますか？\r\n※ルームメンバーが0人になるとルームは自動的に削除されます" } %>
           <% end %>
         </div>
       </div>
@@ -82,6 +86,21 @@
           <p class="room-memo"><%= @private_room.description %></p>
         <% end %>
       </div>
+    </div>
+  </div>
+
+  <%# ルームメンバー追加ページ %>
+  <div class="private-room-third-main" id="private-third-main">
+    <div class="private-room-third-wrap">
+      <%= form_with url: add_member_private_room_path(@private_room.id), class:"add-member-form", local: true do |f| %>
+        <h2 class="add-member-form-title">追加するユーザーを選択</h2>
+        <div class="private-add-member-box">
+          <%= f.collection_check_boxes("user_ids", @followings, :id, :nickname) do |user| %>
+            <%= user.label { user.check_box + user.text } %>
+          <% end %>
+        </div>
+        <%= f.submit 'ルームに追加', class:"private-add-submit-btn" %>
+      <% end %>
     </div>
   </div>
 
