@@ -1,3 +1,43 @@
+.simple-chat-btn {
+  padding: 2px 10px 2px 11px;
+  margin-right: 5px;
+  background-color: rgb(208, 248, 255);
+  border-radius: 10px;
+  box-shadow: gray 2px 2px;
+  display: block;
+  color: rgb(0, 110, 255);
+  text-decoration: none;
+  font-size: 42px;
+}
+
+.simple-chat-btn:hover {
+  background-color: rgb(154, 215, 240);
+}
+
+.simple-chat-btn:active {
+  box-shadow: none;
+}
+
+.simple-chat-reverse {
+  padding: 2px 10px 2px 11px;
+  margin-right: 5px;
+  background-color: rgb(208, 248, 255);
+  border-radius: 10px;
+  box-shadow: gray 2px 2px;
+  display: none;
+  color: rgb(0, 110, 255);
+  text-decoration: none;
+  font-size: 42px;
+}
+
+.simple-chat-reverse:hover {
+  background-color: rgb(154, 215, 240);
+}
+
+.simple-chat-reverse:active {
+  box-shadow: none;
+}
+
 .unfollow-btn {
   width: 180px;
   margin: 0 15px 20px 0;

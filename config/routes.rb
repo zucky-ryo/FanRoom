@@ -22,5 +22,8 @@ Rails.application.routes.draw do
       post "add_member"
       delete "exit"
     end
+    collection do
+      post "simple_chat"
+    end
   end
 end

@@ -1,4 +1,5 @@
 class PrivateRoomsController < ApplicationController
+  # ルームをルーム内で送信されたメッセージが新しい順に表示
   def index
     @private_rooms = current_user.private_rooms.joins(:private_messages).includes(:users, :private_messages).order("private_messages.id DESC")
     @my_open_rooms = current_user.open_rooms.joins(:open_messages).includes(:users, :open_messages).order("open_messages.id DESC")
@@ -9,6 +10,7 @@ class PrivateRoomsController < ApplicationController
     @followings = current_user.followings.includes(:relationships).order("relationships.created_at DESC")
   end
 
+  # フォームオブジェクトにてルーム作成
   def create
     @private_room = PrivateRoomMember.new(private_room_params)
     @private_room.user_ids.push(current_user.id)
@@ -68,6 +70,23 @@ class PrivateRoomsController < ApplicationController
         @private_room.destroy
       end
       redirect_to private_rooms_path
+    end
+  end
+
+  # 他ユーザーの詳細ページからそのユーザーとのチャットをすぐに生成する(既存の場合はそのルームに遷移)
+  def simple_chat
+    other_user = User.find(params[:format])
+    room = PrivateRoom.includes(:users).select do |room|
+      room.users.include?(current_user) && room.users.include?(other_user) && room.users.length == 2
+    end
+    if room.length == 0
+      private_room = PrivateRoom.create(name: "", description: "")
+      PrivateRoomUser.create(user_id: current_user.id, private_room_id: private_room.id)
+      PrivateRoomUser.create(user_id: params[:format], private_room_id: private_room.id)
+      PrivateMessage.create(content: "ルームを作成しました", user_id: current_user.id, private_room_id: private_room.id)
+      redirect_to private_room_path(private_room.id)
+    else
+      redirect_to private_room_path(room[0].id)
     end
   end
 
