@@ -62,14 +62,14 @@ class OpenRoomsController < ApplicationController
   end
 
   # 今見てるチャットルームに参加する
-  def add_member
+  def join
     @open_room = OpenRoom.find(params[:id])
     OpenRoomUser.find_or_create_by(user_id: current_user.id, open_room_id: params[:id])
     redirect_to open_room_path(@open_room.id)
   end
 
   # ルームから退出し、ルームメンバーが0になったらルームを自動的に削除する
-  def remove_member
+  def exit
     @open_room = OpenRoom.find(params[:id])
     @open_room_user = OpenRoomUser.find_by(open_room_id: params[:id], user_id: current_user.id)
     if @open_room_user.destroy

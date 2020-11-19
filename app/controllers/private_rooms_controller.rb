@@ -29,11 +29,59 @@ class PrivateRoomsController < ApplicationController
     @users = @private_room.users
     @private_message = PrivateMessage.new
     @private_messages = @private_room.private_messages.includes(:user)
+    @followings = current_user.followings.includes(:relationships).order("relationships.created_at DESC").select do |user|
+      @users.include?(user) == false
+    end
+  end
+
+  def edit
+    @private_room = PrivateRoom.find(params[:id])
+    @users = @private_room.users
+  end
+
+  # ルーム名とルームメモの更新のみのためフォームオブジェクトは利用しない
+  def update
+    @private_room = PrivateRoom.find(params[:id])
+    @users = @private_room.users
+    if @private_room.update(private_room_update_params)
+      redirect_to private_room_path(@private_room.id)
+    else
+      render :edit
+    end
+  end
+
+  # ルームにメンバーを追加する
+  def add_member
+    room_id = add_member_params[:private_room_id]
+    add_member_params[:user_ids].each do |user_id|
+      PrivateRoomUser.create(user_id: user_id, private_room_id: room_id)
+    end
+    redirect_to private_room_path(room_id)
+  end
+
+  # ルームから退出し、ルームメンバーが0になったらルームを自動的に削除する
+  def exit
+    @private_room = PrivateRoom.find(params[:id])
+    @private_room_user = PrivateRoomUser.find_by(private_room_id: params[:id], user_id: current_user.id)
+    if @private_room_user.destroy
+      if @private_room.users.length == 0
+        @private_room.destroy
+      end
+      redirect_to private_rooms_path
+    end
   end
 
   private
 
   def private_room_params
     params.require(:private_room_member).permit(:name, :description, user_ids: [])
+  end
+
+  def private_room_update_params
+    params.require(:private_room).permit(:name, :description)
+  end
+
+  def add_member_params
+    params.permit(user_ids: []).merge(private_room_id: params[:id])
   end
 end

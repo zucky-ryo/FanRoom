@@ -1,11 +1,11 @@
 <%= render "shared/second-header"%>
 
-<%= form_with model: @open_room, url: open_room_path(@open_room.id), class: "open-room-edit-main", local: true do |f| %>
-  <div class="open-room-edit-wrap">
+<%= form_with model: @private_room, url: private_room_path(@private_room.id), class: "private-room-edit-main", local: true do |f| %>
+  <div class="private-room-edit-wrap">
     <h1>ルーム情報編集</h1>
     <div class="room-edit-head-wrap">
       <div class="room-edit-back">
-        <%= link_to ' ルームに戻る', open_room_path(@open_room.id), class:"fas fa-angle-left room-edit-back-btn" %>
+        <%= link_to ' ルームに戻る', private_room_path(@private_room.id), class:"fas fa-angle-left room-edit-back-btn" %>
       </div>
       <div class="room-member-edit-wrap" id="member-wrap">
         <p class="room-member-title">メンバー：</p>
@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <%= render 'shared/error_messages', model: @open_room %>
+    <%= render 'shared/error_messages', model: @private_room %>
 
     <div class="room-name-edit-wrap">
       <label class="room-name-edit-title">ルーム名</label>
@@ -28,7 +28,7 @@
 
     <div class="room-memo-edit-wrap">
       <label class="room-memo-edit-title">ルームメモ</label>
-      <%= f.text_area :description, class:"room-memo-edit", id:"open-content", placeholder:"グループの説明やアピールする文章を書こう！", maxlength:"1000" %>
+      <%= f.text_area :description, class:"room-memo-edit", id:"open-content", placeholder:"ルームメモを利用して内容をルームメンバーで共有しよう！", maxlength:"1000" %>
     </div>
 
     <%= f.submit '保存する', class:"room-edit-submit-btn" %>
