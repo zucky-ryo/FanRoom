@@ -31,6 +31,8 @@ class PrivateRoomsController < ApplicationController
   def show
     @private_room = PrivateRoom.find(params[:id])
     @users = @private_room.users
+    # ルームメンバーでない場合トップページに遷移
+    redirect_to root_path unless @users.include?(current_user)
     @private_message = PrivateMessage.new
     @private_messages = @private_room.private_messages.includes(:user)
     # メンバー追加時の選択リストから参加ずみのユーザーを除くため
@@ -42,6 +44,8 @@ class PrivateRoomsController < ApplicationController
   def edit
     @private_room = PrivateRoom.find(params[:id])
     @users = @private_room.users
+    # ルームメンバーでない場合トップページに遷移
+    redirect_to root_path unless @users.include?(current_user)
   end
 
   # ルーム名とルームメモの更新のみのためフォームオブジェクトは利用しない
