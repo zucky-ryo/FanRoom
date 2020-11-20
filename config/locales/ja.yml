@@ -13,4 +13,5 @@ ja:
         name: ルーム名
         fan_team_id: チームタグ
       private_room_member:
+        name: ルーム名
         user_ids: ルームメンバー
