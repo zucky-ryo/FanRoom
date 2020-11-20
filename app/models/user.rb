@@ -23,7 +23,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX, message: "Include both letters and numbers", on: :create
+  validates_format_of :password, with: PASSWORD_REGEX, message: "は半角英数字で入力してください", on: :create
 
   # フォロー時のメソッド（フォロー済みの場合findを返す）
   def follow(other_user)

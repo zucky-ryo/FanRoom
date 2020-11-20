@@ -7,7 +7,7 @@ class PrivateRoomMember
 
   def user_ids_validation
     if user_ids.length == 2
-      errors.add(:user_ids, "can't be blank")
+      errors.add(:user_ids, "を選択してください")
     end
   end
 
