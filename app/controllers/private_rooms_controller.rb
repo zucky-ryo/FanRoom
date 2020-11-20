@@ -1,4 +1,6 @@
 class PrivateRoomsController < ApplicationController
+  before_action :authenticate_user!
+
   # ルームをルーム内で送信されたメッセージが新しい順に表示
   def index
     @private_rooms = current_user.private_rooms.joins(:private_messages).includes(:users, :private_messages).order("private_messages.id DESC")
@@ -31,6 +33,7 @@ class PrivateRoomsController < ApplicationController
     @users = @private_room.users
     @private_message = PrivateMessage.new
     @private_messages = @private_room.private_messages.includes(:user)
+    # メンバー追加時の選択リストから参加ずみのユーザーを除くため
     @followings = current_user.followings.includes(:relationships).order("relationships.created_at DESC").select do |user|
       @users.include?(user) == false
     end

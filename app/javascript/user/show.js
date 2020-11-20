@@ -18,7 +18,7 @@ $(function(){
       $('#header-mypage').css('background', 'yellow');
     }
 
-    // フォローボタンとフォロー解除ボタンを切り替えて、リストに追加・削除する
+    // フォローボタンとフォロー解除ボタンを切り替えて、リストに追加・削除する（簡易ルーム作成ボタンも切り替える）
     followBtn.bind('ajax:success', () => {
       let followerNum = parseInt(followers.text());
       followBtn.css('display', 'none');
@@ -67,13 +67,3 @@ $(function(){
     );
   }
 });
-
-
-// $('#member-wrap').hover(
-//   () => {
-//     $('#member-list').css('display', 'block');
-//   },
-//   () => {
-//     $('#member-list').css('display', 'none');
-//   }
-// );

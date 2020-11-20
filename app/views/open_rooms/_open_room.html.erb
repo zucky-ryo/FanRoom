@@ -1,6 +1,7 @@
 <div class="open-list-css">
 <li class="open-list">
   <%= link_to open_room_path(open_room.id) do %>
+    <%# 参加済みルームの場合ルーム名の隣に参加中を表示 %>
     <% if open_room.users.include?(current_user) %>
       <h4 class="open-room-name"><%= open_room.name %><span>(参加中)</span></h4>
     <% else %>
@@ -8,6 +9,7 @@
     <% end %>
     <div class="open-room-description">
       <p class="open-room-member"><i class="fas fa-user-alt open-member-icon"></i><%= open_room.users.length %></p>
+      <%# 最新メッセージの日時を表示（今日の時はTodayを表示） %>
       <% if open_room.open_messages[0].created_at.strftime("%Y/%m/%d") == Date.today.strftime("%Y/%m/%d") %>
         <p class="open-room-at">Today<%= open_room.open_messages[0].created_at.strftime(" %-H:%M") %></p>
       <% else %>

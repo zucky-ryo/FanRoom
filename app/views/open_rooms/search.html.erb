@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
 
+<%# 検索後のindex %>
 <div class="open-room">
   <div class="open-room-title">公開チャットルーム一覧
     <%= link_to '作成', new_open_room_path, class: "open-new-btn" %>
@@ -16,6 +17,8 @@
       <input type="search" class="open-name-search" id="room-name-search">
     </div>
   </div>
+  
+  <%# ルーム一覧 %>
   <p class="search-explain">チームタグ：<span><%= @fan_team.team_name %></span>を含む公開チャットルームを表示中</p>
   <ul class="open-lists" id="room-lists">
     <%= render partial: 'search_room', collection: @search_rooms %>
