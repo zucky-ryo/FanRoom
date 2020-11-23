@@ -149,7 +149,7 @@ RSpec.describe "公開チャットルーム削除機能", type: :system do
     # 詳細ボタンをクリックする
     find("#open-description").click
     # 退出ボタンをクリックすることで、初期メッセージ1つと作成した5つのメッセージが全て削除されていることを確認する
-    find_link("退出",  href: remove_member_open_room_path(@open_room_user.open_room.id)).click
+    find_link("退出",  href: exit_open_room_path(@open_room_user.open_room.id)).click
     expect{
       expect(page.accept_confirm).to eq "このルームから退出しますか？\n※ルームメンバーが0人になるとルームは自動的に削除されます"
       sleep 0.5
