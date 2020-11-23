@@ -3,6 +3,7 @@
     <h4 class="my-room-name"><%= my_open_room.name %></h4>
     <div class="my-room-description">
       <p class="my-room-member"><i class="fas fa-user-alt my-member-icon"></i><%= my_open_room.users.length %></p>
+      <%# 最新メッセージの日時を表示（今日の時はTodayを表示） %>
       <% if my_open_room.open_messages[0].created_at.strftime("%Y/%m/%d") == Date.today.strftime("%Y/%m/%d") %>
         <p class="my-room-at">Today<%= my_open_room.open_messages[0].created_at.strftime(" %-H:%M") %></p>
       <% else %>

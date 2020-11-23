@@ -35,6 +35,8 @@ class OpenRoomsController < ApplicationController
   def edit
     @open_room = OpenRoom.find(params[:id])
     @users = @open_room.users
+    # ルームメンバーでない場合トップページに遷移
+    redirect_to root_path unless @users.include?(current_user)
   end
 
   # ルーム名とルームメモの更新のみのためフォームオブジェクトは利用しない

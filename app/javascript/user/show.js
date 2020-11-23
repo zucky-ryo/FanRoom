@@ -4,6 +4,7 @@ $(function(){
   if (urlPath.match(/users/) && urlPath.match(/\d/)) {
     const followBtn = $('#follow-button');
     const unfollowBtn = $('#unfollow-button');
+    const simpleChatBtn = $('#simple-chat-button');
     const followers = $('#user-followers');
     const currentName = $("#current-name").html();
     const currentNameText = $("#current-name").text();
@@ -17,11 +18,12 @@ $(function(){
       $('#header-mypage').css('background', 'yellow');
     }
 
-    // フォローボタンとフォロー解除ボタンを切り替えて、リストに追加・削除する
+    // フォローボタンとフォロー解除ボタンを切り替えて、リストに追加・削除する（簡易ルーム作成ボタンも切り替える）
     followBtn.bind('ajax:success', () => {
       let followerNum = parseInt(followers.text());
       followBtn.css('display', 'none');
       unfollowBtn.css('display', 'block');
+      simpleChatBtn.css('display', 'block');
       followers.text(followerNum + 1);
       followerLists.prepend(`<div class="follower-list" id="user-follower-list">${currentName}</div>`);
     });
@@ -29,6 +31,7 @@ $(function(){
       let followerNum = parseInt(followers.text());
       unfollowBtn.css('display', 'none');
       followBtn.css('display', 'block');
+      simpleChatBtn.css('display', 'none');
       followers.text(followerNum - 1);
       $('.follower-list').each((index, element) => {
         if ($(element).text().trim() == currentNameText){
@@ -64,13 +67,3 @@ $(function(){
     );
   }
 });
-
-
-// $('#member-wrap').hover(
-//   () => {
-//     $('#member-list').css('display', 'block');
-//   },
-//   () => {
-//     $('#member-list').css('display', 'none');
-//   }
-// );

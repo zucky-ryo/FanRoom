@@ -7,7 +7,7 @@ class OpenRoomTeam
 
   def fan_team_validation
     if fan_team_id[0][:id] == ""
-      errors.add(:fan_team_id, "can't be blank")
+      errors.add(:fan_team_id, "を入力してください")
     end
   end
 

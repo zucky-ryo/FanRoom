@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        fan_team: ファンチーム
+      open_room:
+        name: ルーム名
+
+  activemodel:
+    attributes:
+      open_room_team:
+        name: ルーム名
+        fan_team_id: チームタグ
+      private_room_member:
+        name: ルーム名
+        user_ids: ルームメンバー

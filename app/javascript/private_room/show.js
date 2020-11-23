@@ -25,7 +25,7 @@ $(function(){
       }
     });
 
-    // ルームの詳細ボタンを押すと詳細が表示される
+    // ルームの詳細ボタンで詳細が表示され、閉じるボタンで閉じる（メンバー追加フォームも同時に閉じる）
     $('#private-description').click(() => {
       $('#private-second-main').fadeIn(300).css('display','flex');
       $('#private-description').css('display', 'none');
@@ -48,6 +48,7 @@ $(function(){
       }
     );
 
+    // メンバー追加ボタンを押すとフォームが表示される
     $('#add-member-btn').click(() => {
       $('#private-third-main').fadeIn(300).css('display','flex');
     });
