@@ -39,10 +39,8 @@ consumer.subscriptions.create("PrivateMessageChannel", {
                       `</div>` +
                     `</li>`;
         let messages = document.getElementById('private-message-lists');
-        let newMessage = document.getElementById('private_message_content');
         const chatHeight = $('#inner-scroll').innerHeight();
         messages.insertAdjacentHTML('beforeend', html);
-        newMessage.value='';
         // 他のメンバーのメッセージ送信時、スクロールが一番下であれば一番下にスクロールする
         if (chatHeight == $('#scroll').scrollTop() + $('#scroll').innerHeight() - 30) {
           $('#scroll').prop({ scrollTop: $("#scroll").prop("scrollHeight") });
