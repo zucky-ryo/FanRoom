@@ -134,8 +134,13 @@ HTML/CSS, JavaScript
 MySQL, SequelPro
 
 ## インフラ
+AWS(EC2)
+
 ## Webサーバー（本番環境）
+Nginx
+
 ## アプリケーションサーバー
+Unicorn
 
 ## ソース管理
 GitHub, GitHubDesktop
