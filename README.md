@@ -17,9 +17,9 @@ FanRoom
 
 # URL
 
-## Heroku
+## AWS
 
-https://fanroom.herokuapp.com/
+http://52.197.109.116/
 
 # テスト用アカウント
 
@@ -114,7 +114,7 @@ https://fanroom.herokuapp.com/
 
 # ローカルでの動作方法
 
-Rubyバージョン：rails 6.0.0<br>
+Rubyバージョン：ruby 2.6.5<br>
  - cd FanRoom
  - bundle install
  - yarn install
