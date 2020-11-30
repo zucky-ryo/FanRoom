@@ -26,4 +26,5 @@ Rails.application.routes.draw do
       post "simple_chat"
     end
   end
+  resources :tweets, only: [:index, :new, :create]
 end
