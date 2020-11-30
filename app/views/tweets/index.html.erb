@@ -1,0 +1,73 @@
+<%= render "shared/header" %>
+
+<div class="tweet-index">
+  <div class="tweet-title">新規投稿一覧
+    <a href="" class="tweet-new">投稿</a>
+  </div>
+  <div class="tweet-search">
+    <div class="tweet-search-top">
+      <a href="#" class="tweet-search-all">全ユーザー</a>
+      <a href="#" class="tweet-search-follow">フォロー中</a>
+    </div>
+    <div class="tweet-search-bottom">
+      <span>　チームタグ：</span>
+      <select name="" id="" class="tweet-team-search">
+        <option value="1">東北楽天ゴールデンイーグルス</option>
+      </select>
+      <input type="submit" >
+    </div>
+  </div>
+
+
+  <div class="tweets-main">
+    <ul class="tweets-lists">
+      <li class="tweets-list">
+        <div class="tweets-top">
+          <p class="tweets-user">tanaka</p>
+          <p class="tweets-date">2020/10/20</p>
+        </div>
+        <img src="tate1.jpg" alt="" class="tweets-image">
+        <p class="tweets-text">
+          aaaaaaa
+          aaaaaaaaaaaa
+          aaaaa
+        </p>
+      </li>
+      <li class="tweets-list">
+        <div class="tweets-top">
+          <p class="tweets-user">suzuki</p>
+          <p class="tweets-date">2020/10/22</p>
+        </div>
+        <img src="yoko1.jpg" alt="" class="tweets-image">
+        <p class="tweets-text">
+          aaaaaaaaaaa
+          aaaaaaaaaaaaaaaaaa
+        </p>
+      </li>
+      <li class="tweets-list">
+        <div class="tweets-top">
+          <p class="tweets-user">yamada</p>
+          <p class="tweets-date">2020/10/24</p>
+        </div>
+        <img src="yoko2.jpg" alt="" class="tweets-image">
+        <p class="tweets-text">
+          aaaaaaaaaaaaaaaaaa
+          aaaaaaaaaaa
+        </p>
+      </li>
+      <li class="tweets-list">
+        <div class="tweets-top">
+          <p class="tweets-user">sato</p>
+          <p class="tweets-date">2020/10/26</p>
+        </div>
+        <img src="tate2.jpg" alt="" class="tweets-image">
+        <p class="tweets-text">
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaaaa
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
