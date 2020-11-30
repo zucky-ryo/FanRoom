@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_063239) do
+ActiveRecord::Schema.define(version: 2020_11_30_050549) do
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "user_id"
+    t.bigint "tweet_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tweet_id"], name: "index_comments_on_tweet_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "fan_teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "team_name", null: false
@@ -92,6 +102,24 @@ ActiveRecord::Schema.define(version: 2020_11_16_063239) do
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
+  create_table "tweet_fan_teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "tweet_id"
+    t.bigint "fan_team_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fan_team_id"], name: "index_tweet_fan_teams_on_fan_team_id"
+    t.index ["tweet_id", "fan_team_id"], name: "index_tweet_fan_teams_on_tweet_id_and_fan_team_id", unique: true
+    t.index ["tweet_id"], name: "index_tweet_fan_teams_on_tweet_id"
+  end
+
+  create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tweets_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -109,6 +137,8 @@ ActiveRecord::Schema.define(version: 2020_11_16_063239) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "tweets"
+  add_foreign_key "comments", "users"
   add_foreign_key "open_messages", "open_rooms"
   add_foreign_key "open_messages", "users"
   add_foreign_key "open_room_fan_teams", "fan_teams"
@@ -121,5 +151,8 @@ ActiveRecord::Schema.define(version: 2020_11_16_063239) do
   add_foreign_key "private_room_users", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
+  add_foreign_key "tweet_fan_teams", "fan_teams"
+  add_foreign_key "tweet_fan_teams", "tweets"
+  add_foreign_key "tweets", "users"
   add_foreign_key "users", "fan_teams"
 end

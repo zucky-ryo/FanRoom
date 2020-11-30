@@ -19,6 +19,9 @@ class User < ApplicationRecord
   has_many :private_rooms, through: :private_room_users, dependent: :destroy
   has_many :private_messages, dependent: :destroy
 
+  has_many :tweets
+  has_many :comments
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
