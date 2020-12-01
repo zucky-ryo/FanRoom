@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   def index
     user_ids = current_user.followings.ids
     user_ids.push(current_user.id)
-    @tweets = Tweet.where(user_id: user_ids).includes(:user).order(created_at: "DESC")
+    @tweets = Tweet.where(user_id: user_ids).limit(50).includes(:user).order(created_at: "DESC")
   end
 
   def new
@@ -21,14 +21,14 @@ class TweetsController < ApplicationController
   end
 
   def all
-    @tweets = Tweet.includes(:user).order(created_at: "DESC")
+    @tweets = Tweet.limit(50).includes(:user).order(created_at: "DESC")
   end
 
   def search
     if params[:fan_team_id] != ""
       @fan_team = FanTeam.find(params[:fan_team_id])
       user_ids = @fan_team.users.ids
-      @tweets = Tweet.where(user_id: user_ids).includes(:user).order(created_at: "DESC")
+      @tweets = Tweet.where(user_id: user_ids).limit(50).includes(:user).order(created_at: "DESC")
     else
       redirect_to all_tweets_path
     end
