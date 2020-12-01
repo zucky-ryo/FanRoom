@@ -1,0 +1,40 @@
+<%= render "shared/second-header"%>
+
+<%= form_with model: @tweet, url: tweets_path, class:"tweet-new-form", local: true do |f| %>
+  <div class="tweet-new-wrap">
+    <div class="tweet-new-header">
+      <h1 class="tweet-new-title">
+        新規ツイート作成
+      </h1>
+    </div>
+
+    <%= render 'shared/error_messages', model: @tweet %>
+
+    <div class="tweet-new-group">
+      <div class="tweet-new-text-wrap">
+        <label for="" class="tweet-new-text">画像・動画</label>
+        <span class="tweet-new-indispensable">必須</span>
+      </div>
+      <%= f.label :image, "画像または動画をアップロード", class:"tweet-file-label" %>
+      <%= f.file_field :image, class:"tweet-new-file" %>
+    </div>
+
+    <%# 画像・動画プレビュー用 %>
+    <div class="tweet-new-group">
+      <div class="image-new-preview" id="image-list"></div>
+    </div>
+
+    <div class="tweet-new-group">
+      <div class="tweet-new-text-wrap">
+        <label for="" class="tweet-new-text">テキスト</label>
+        <span class="tweet-new-indispensable-not">任意</span>
+      </div>
+      <%= f.text_area :text, class:"tweet-new-content", placeholder:"投稿にテキストを付けよう！", maxlength:"1000" %>
+    </div>
+    <div class="tweet-new-submit">
+      <%= f.submit '投稿する', class:"tweet-new-submit-btn" %>
+    </div>
+  </div>
+<% end %>
+
+<%= render "shared/second-footer"%>

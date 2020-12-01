@@ -1,0 +1,127 @@
+.tweet-new-form {
+  width: 100vw;
+  min-width: 800px;
+  min-height: 100vh;
+  background-color: rgb(255, 221, 159);
+  display: flex;
+  justify-content: center;
+}
+
+.tweet-new-wrap {
+  width: 60%;
+  background-color: rgb(255, 248, 234);
+  padding-bottom: 30px;
+}
+
+.tweet-new-header {
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.tweet-new-title {
+  line-height: 100px;
+  background-color: rgb(255, 147, 58);
+  font-weight: bold;
+  color: white;
+}
+
+.tweet-new-group {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.tweet-new-text-wrap {
+  width: 100%;
+  height: 20%;
+}
+
+.tweet-new-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.tweet-new-indispensable {
+  padding: 2px;
+  font-size: 15px;
+  color: white;
+  background-color: red;
+}
+
+.tweet-new-indispensable-not {
+  padding: 2px;
+  font-size: 15px;
+  background-color: lightblue;
+}
+
+.tweet-file-label {
+  width: 100%;
+  height: 35px;
+  padding-top: 4px;
+  margin-top: 12px;
+  border-radius: 4px;
+  background-color: white;
+  border: solid 1px #ccc;
+  box-shadow: gray 1px 1px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tweet-file-label:hover {
+  background-color: #ccc;
+}
+
+.tweet-file-label:active {
+  box-shadow: none;
+}
+
+.tweet-new-file {
+  display: none;
+}
+
+.image-new-preview {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  img {
+    max-width: 100%;
+    max-height: 250px;
+  }
+  video {
+    max-width: 100%;
+    max-height: 250px;
+    margin: 0 auto;
+  }
+}
+
+.tweet-new-content {
+  width: 100%;
+  margin-top: 5px;
+  height: 150px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+
+.tweet-new-submit {
+  width: 50%;
+  margin: 50px auto;
+}
+
+.tweet-new-submit-btn {
+  width: 100%;
+  background-color: rgb(41, 207, 0);
+  border: 1px solid rgb(41, 207, 0);
+  color: white;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}

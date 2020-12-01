@@ -65,8 +65,15 @@ group :production do
   gem "unicorn", "5.4.1"
 end
 
+# binding.pryの使用
 gem "pry-rails"
 
+# ユーザー管理機能
 gem "devise"
 
+# 日本語表記
 gem "rails-i18n"
+
+# 画像のサイズ変更等
+gem "mini_magick"
+gem "image_processing", "~> 1.2"

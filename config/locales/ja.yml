@@ -6,6 +6,8 @@ ja:
         fan_team: ファンチーム
       open_room:
         name: ルーム名
+      tweet:
+        image: 画像または動画
 
   activemodel:
     attributes:
