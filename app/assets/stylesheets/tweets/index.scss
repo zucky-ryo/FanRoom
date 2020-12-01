@@ -95,6 +95,7 @@
 
 .tweets-main {
   width: 100vw;
+  min-height: 60vh;
   padding: 0 100px;
   background-color: rgb(255, 238, 205);
 }
@@ -116,31 +117,41 @@
 
 .tweets-top {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .tweets-user {
-  width: 70%;
-  padding: 0 0 15px 15px;
-  font-size: 20px;
+  width: 100%;
+  padding-left: 15px;
+  font-size: 22px;
   color: navy;
   font-weight: bold;
 }
 
-.tweets-date {
-  width: 30%;
-  padding-top: 20px;
-  font-size: 15px;
-  color: rgb(60, 60, 60);
-  text-align: right;
-}
-
-.tweets-image {
+.tweets-image-wrap {
   width: 100%;
+  padding: 10px 5px;
+  display: flex;
+  justify-content: center;
+  img {
+    max-width: 100%;
+    max-height: 200px;
+  }
+  video {
+    max-width: 100%;
+    max-height: 200px;
+  }
 }
 
 .tweets-text {
-  padding: 10px 0;
+  padding: 5px 0;
   font-size: 18px;
   color: rgb(50, 50, 50);
+}
+
+.tweets-date {
+  width: 100%;
+  font-size: 15px;
+  color: rgb(60, 60, 60);
+  text-align: right;
 }

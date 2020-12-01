@@ -13,6 +13,7 @@ require("../open_room/index")
 require("../open_room/show")
 require("../private_room/index")
 require("../private_room/show")
+require("../tweet/index")
 require("../tweet/new")
 
 

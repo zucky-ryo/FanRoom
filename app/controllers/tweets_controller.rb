@@ -1,5 +1,10 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!, except: [:all, :search]
+
   def index
+    user_ids = current_user.followings.ids
+    user_ids.push(current_user.id)
+    @tweets = Tweet.where(user_id: user_ids).includes(:user).order(created_at: "DESC")
   end
 
   def new
@@ -9,10 +14,23 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
-      binding.pry
       redirect_to tweets_path
     else
       render :new
+    end
+  end
+
+  def all
+    @tweets = Tweet.includes(:user).order(created_at: "DESC")
+  end
+
+  def search
+    if params[:fan_team_id] != ""
+      @fan_team = FanTeam.find(params[:fan_team_id])
+      user_ids = @fan_team.users.ids
+      @tweets = Tweet.where(user_id: user_ids).includes(:user).order(created_at: "DESC")
+    else
+      redirect_to all_tweets_path
     end
   end
 

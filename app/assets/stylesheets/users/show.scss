@@ -154,12 +154,12 @@
   word-wrap: break-word;
 }
 
-.tweets-top {
+.user-tweets-top {
   display: flex;
   justify-content: space-between;
 }
 
-.tweets-user {
+.user-tweets-name {
   width: 70%;
   padding: 0 0 15px 15px;
   font-size: 20px;
@@ -167,7 +167,7 @@
   font-weight: bold;
 }
 
-.tweets-date {
+.user-tweets-date {
   width: 30%;
   padding-top: 20px;
   font-size: 15px;
@@ -175,11 +175,11 @@
   text-align: right;
 }
 
-.tweets-image {
+.user-tweets-image {
   width: 100%;
 }
 
-.tweets-text {
+.user-tweets-text {
   padding: 10px 0;
   font-size: 18px;
   color: rgb(50, 50, 50);
