@@ -1,1 +1,31 @@
-<h1>新規投稿</h1>
+<%= render "shared/second-header"%>
+
+<form action="" class="tweet-new-form">
+  <div class="tweet-new-wrap">
+    <div class="tweet-new-header">
+      <h1 class="tweet-new-title">
+        新規ツイート作成
+      </h1>
+    </div>
+
+    <div class="tweet-new-group">
+      <div class="tweet-new-text-wrap">
+        <label for="" class="tweet-new-text">画像・動画</label>
+        <span class="tweet-new-indispensable">必須</span>
+      </div>
+      <input type="file" class="tweet-new-file" >
+    </div>
+    <div class="tweet-new-group">
+      <div class="tweet-new-text-wrap">
+        <label for="" class="tweet-new-text">テキスト</label>
+        <span class="tweet-new-indispensable-not">任意</span>
+      </div>
+      <textarea class="tweet-new-content" name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="tweet-new-submit">
+      <input type="submit" value="投稿する" class="tweet-new-submit-btn">
+    </div>
+  </div>
+</form>
+
+<%= render "shared/second-footer"%>
