@@ -305,8 +305,6 @@ VSCode
 
  - belongs_to :user
  - has_many :comments
- - has_many :fan_teams, through: :tweet_fan_teams
- - has_many :tweet_fan_teams
 
 ## commentsテーブル
 
@@ -330,8 +328,6 @@ VSCode
 ### Association
 
  - has_many :users
- - has_many :tweets, through: :tweet_fan_teams
- - has_many :tweet_fan_teams
  - has_many :open_rooms, through: :open_room_fan_teams
  - has_many :open_room_fan_teams
 
@@ -345,16 +341,4 @@ VSCode
 ### Association
 
  - belongs_to :open_room
- - belongs_to :fan_team
-
-## tweet_fan_teamsテーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| tweet    | references | null: false, foreign_key: true |
-| fan_team | references | null: false, foreign_key: true |
-
-### Association
-
- - belongs_to :tweet
  - belongs_to :fan_team

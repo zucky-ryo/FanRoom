@@ -102,16 +102,6 @@ ActiveRecord::Schema.define(version: 2020_11_30_050549) do
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
-  create_table "tweet_fan_teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "tweet_id"
-    t.bigint "fan_team_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["fan_team_id"], name: "index_tweet_fan_teams_on_fan_team_id"
-    t.index ["tweet_id", "fan_team_id"], name: "index_tweet_fan_teams_on_tweet_id_and_fan_team_id", unique: true
-    t.index ["tweet_id"], name: "index_tweet_fan_teams_on_tweet_id"
-  end
-
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text"
     t.bigint "user_id"
@@ -151,8 +141,6 @@ ActiveRecord::Schema.define(version: 2020_11_30_050549) do
   add_foreign_key "private_room_users", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
-  add_foreign_key "tweet_fan_teams", "fan_teams"
-  add_foreign_key "tweet_fan_teams", "tweets"
   add_foreign_key "tweets", "users"
   add_foreign_key "users", "fan_teams"
 end
