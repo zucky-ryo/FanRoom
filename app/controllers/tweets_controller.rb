@@ -40,10 +40,12 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     @comment = Comment.new
+    @comments = @tweet.comments.includes(:user).order(created_at: "DESC")
   end
 
   def destroy
     @tweet = Tweet.find(params[:id])
+    @comments = @tweet.comments.includes(:user).order(created_at: "DESC")
     if @tweet.user == current_user
       @tweet.image.purge
       @tweet.destroy

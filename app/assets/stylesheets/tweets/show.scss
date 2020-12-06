@@ -148,6 +148,12 @@
   align-items: center;
 }
 
+.tweet-comment-none {
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .tweet-comment-list {
   width: 96%;
   margin: 5px;
@@ -163,12 +169,13 @@
 
 .tweet-comment-user {
   padding: 5px 10px;
-  font-size: 22px;
+  font-size: 20px;
+  color: rgb(0, 0, 90);
 }
 
 .tweet-comment-date {
   padding: 5px 10px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .tweet-comment-main {

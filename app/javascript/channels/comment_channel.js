@@ -28,6 +28,9 @@ consumer.subscriptions.create("CommentChannel", {
       const newMessage = document.getElementById('comment_content');
       messages.insertAdjacentHTML('afterbegin', html);
       newMessage.value='';
+      if($('#tweet-comment-sample').length){
+        $('#tweet-comment-sample').css('display', 'none');
+      }
     }
   }
 });
