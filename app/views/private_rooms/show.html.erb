@@ -36,7 +36,7 @@
             </li>
           <% else %>
             <li class="message-list">
-              <p class="message-user"><%= private_message.user.nickname %></p>
+              <%= link_to private_message.user.nickname, user_path(private_message.user.id), class:"message-user" %>
               <div class="message-main">
                 <p class="message-box"><%= private_message.content %></p>
                 <p class="message-time"><%= private_message.created_at.strftime("%-H:%M") %></p>

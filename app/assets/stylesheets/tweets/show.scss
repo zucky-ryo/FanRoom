@@ -13,9 +13,12 @@
 }
 
 .tweet-show-title {
-  padding: 5px 20px;  
+  padding: 5px 20px;
+  display: block;
+  text-decoration: none;
   font-size: 30px;
   font-weight: bold;
+  color: rgb(0, 0, 90);
 }
 
 .tweet-show-date {
@@ -169,6 +172,8 @@
 
 .tweet-comment-user {
   padding: 5px 10px;
+  display: block;
+  text-decoration: none;
   font-size: 20px;
   color: rgb(0, 0, 90);
 }
