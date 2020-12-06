@@ -1,0 +1,28 @@
+<%= render "shared/header" %>
+
+<div class="tweet-index">
+  <div class="tweet-title">画像・動画投稿一覧
+    <%= link_to '投稿', new_tweet_path, class:"tweet-new" %>
+  </div>
+  <div class="tweet-search">
+    <div class="tweet-search-top">
+      <a href="" class="tweet-search-all" id="tweet-search-current">全ユーザー</a>
+      <%= link_to 'フォロー中', tweets_path, class:"tweet-search-follow" %>
+    </div>
+    <%= form_with url: search_tweets_path, method: :get, class:"tweet-search-bottom", local: true do |f| %>
+      <span>　ファンチーム：</span>
+      <%= f.collection_select :fan_team_id, FanTeam.all, :id, :team_name, include_blank: "--" %>
+      <br>
+      <%= f.submit '検索' %>
+    <% end %>
+  </div>
+
+  <div class="tweets-main">
+    <ul class="tweets-lists">
+      <%= render partial: "tweet", collection: @tweets %>
+    </ul>
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>

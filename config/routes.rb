@@ -26,5 +26,10 @@ Rails.application.routes.draw do
       post "simple_chat"
     end
   end
-  resources :tweets, only: [:index, :new, :create]
+  resources :tweets, only: [:index, :new, :create] do
+    collection do
+      get "all"
+      get "search"
+    end
+  end
 end

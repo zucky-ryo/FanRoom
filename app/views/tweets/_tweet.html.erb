@@ -1,0 +1,18 @@
+<li class="tweets-list">
+  <div class="tweets-top">
+    <p class="tweets-user"><%= tweet.user.nickname %></p>
+  </div>
+  <div class="tweets-image-wrap">
+    <% if tweet.image.content_type.include?("mp4") %>
+      <video src="<%= rails_blob_path(tweet.image) %>" type="video/mp4" controls></video>
+    <% else %>
+      <img src="<%= rails_blob_path(tweet.image) %>">
+    <% end %>
+  </div>
+  <p class="tweets-text"><%= tweet.text %></p>
+  <% if tweet.created_at.strftime("%Y/%m/%d") == Date.today.strftime("%Y/%m/%d") %>
+    <p class="tweets-date">Today<%= tweet.created_at.strftime(" %-H:%M") %></p>
+  <% else %>
+    <p class="tweets-date"><%= tweet.created_at.strftime("%Y/%m/%d %-H:%M") %></p>
+  <% end %>
+</li>

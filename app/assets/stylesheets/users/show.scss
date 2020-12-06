@@ -127,16 +127,39 @@
 
 .user-tweets {
   width: 100vw;
+  min-height: 35vh;
   padding: 0 100px;
-  background-color: lightblue;
+  background-color: rgb(255, 238, 205);
 }
 
-.user-tweets-top {
+.user-tweets-top{
   padding: 10px 0;
   text-align: center;
-  background-color: rgb(0, 60, 255);
+  background-color: rgb(255, 145, 0);
   color: white;
   font-size: 30px;
+  position: relative;
+  a {
+    height: 80%;
+    padding: 0 10px;
+    background-color: rgb(51, 228, 28);
+    box-shadow: gray 2px 2px;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 51px;
+    font-weight: bold;
+    color: black;
+    position: absolute;
+    top: 9.5%;
+    left: 85%;
+  }
+  a:hover {
+    background-color: rgb(99, 255, 67);
+  }
+  a:active {
+    box-shadow: none;
+  }
 }
 
 .user-tweets-lists {
@@ -146,41 +169,11 @@
   align-items: flex-start;
 }
 
-.user-tweets-list {
-  width: calc((100% - 30px) / 2);
-  padding: 10px 20px;
-  margin: 10px 0px 20px 0px;
-  background-color: lightskyblue;
-  word-wrap: break-word;
-}
-
-.tweets-top {
-  display: flex;
-  justify-content: space-between;
-}
-
-.tweets-user {
-  width: 70%;
-  padding: 0 0 15px 15px;
-  font-size: 20px;
-  color: navy;
-  font-weight: bold;
-}
-
-.tweets-date {
-  width: 30%;
-  padding-top: 20px;
-  font-size: 15px;
-  color: rgb(60, 60, 60);
-  text-align: right;
-}
-
-.tweets-image {
+.user-tweets-none {
   width: 100%;
-}
-
-.tweets-text {
-  padding: 10px 0;
-  font-size: 18px;
-  color: rgb(50, 50, 50);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: navy;
 }
