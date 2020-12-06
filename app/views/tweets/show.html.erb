@@ -20,7 +20,7 @@
     </div>
     <% if @tweet.user == current_user %>
     <div class="tweet-delete-btn">
-      <a>投稿を削除</a>
+      <%= link_to '投稿を削除', tweet_path(@tweet.id), method: :delete %>
     </div>
     <% end %>
     <div class="tweet-comment-new">

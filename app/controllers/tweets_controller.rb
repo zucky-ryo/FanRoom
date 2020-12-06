@@ -41,7 +41,15 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
   end
 
-  def delete
+  def destroy
+    @tweet = Tweet.find(params[:id])
+    if @tweet.user == current_user
+      @tweet.image.purge
+      @tweet.destroy
+      redirect_to tweets_path
+    else
+      render :show
+    end
   end
 
   private
