@@ -1,0 +1,85 @@
+<%= render "shared/header" %>
+
+<div class="tweet-show">
+  <div class="tweet-show-top">
+    <h1 class="tweet-show-title"><%= @tweet.user.nickname %>さんの投稿</h1>
+    <% if @tweet.created_at.strftime("%Y/%m/%d") == Date.today.strftime("%Y/%m/%d") %>
+      <p class="tweet-show-date">Today<%= @tweet.created_at.strftime(" %-H:%M") %></p>
+    <% else %>
+      <p class="tweet-show-date"><%= @tweet.created_at.strftime("%Y/%m/%d %-H:%M") %></p>
+    <% end %>
+    <div class="tweet-show-main">
+      <div class="tweet-show-image">
+        <% if @tweet.image.content_type.include?("mp4") %>
+          <video src="<%= rails_blob_path(@tweet.image) %>" type="video/mp4" controls></video>
+        <% else %>
+          <img src="<%= rails_blob_path(@tweet.image) %>">
+        <% end %>
+      </div>
+      <p class="tweet-show-text"><%= @tweet.text %></p>
+    </div>
+    <% if @tweet.user == current_user %>
+    <div class="tweet-delete-btn">
+      <a>投稿を削除</a>
+    </div>
+    <% end %>
+    <div class="tweet-comment-new">
+      <p class="tweet-comment-new-title" id="tweet-comment-btn">このツイートにコメントする</p>
+      <form class="tweet-comment-form" id="comment-form">
+        <textarea></textarea>
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+  <div class="tweet-show-bottom">
+    <h2 class="tweet-comment-title">コメント</h1>
+    <ul class="tweet-comment-lists">
+      <li class="tweet-comment-list">
+        <div class="tweet-comment-top">
+          <p class="tweet-comment-user">suzuki</p>
+          <p class="tweet-comment-date">12/3 11:50</p>
+        </div>
+        <div class="tweet-comment-main">
+          <p class="tweet-comment-content">
+            いい写真ですね
+          </p>
+        </div>
+      </li>
+      <li class="tweet-comment-list">
+        <div class="tweet-comment-top">
+          <p class="tweet-comment-user">yamadataro</p>
+          <p class="tweet-comment-date">11/3 13:50</p>
+        </div>
+        <div class="tweet-comment-main">
+          <p class="tweet-comment-content">
+            ナイスううううううううううううう
+          </p>
+        </div>
+      </li>
+      <li class="tweet-comment-list">
+        <div class="tweet-comment-top">
+          <p class="tweet-comment-user">suzuki</p>
+          <p class="tweet-comment-date">12/3 11:50</p>
+        </div>
+        <div class="tweet-comment-main">
+          <p class="tweet-comment-content">
+            いい写真ですね
+          </p>
+        </div>
+      </li>
+      <li class="tweet-comment-list">
+        <div class="tweet-comment-top">
+          <p class="tweet-comment-user">yamadataroooo</p>
+          <p class="tweet-comment-date">11/3 13:50</p>
+        </div>
+        <div class="tweet-comment-main">
+          <p class="tweet-comment-content">
+            ナイスううううううううううううう
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

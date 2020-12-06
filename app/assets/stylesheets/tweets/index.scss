@@ -113,6 +113,13 @@
   margin: 20px 0px;
   background-color: rgb(255, 203, 106);
   word-wrap: break-word;
+  a {
+    text-decoration: none;
+  }
+}
+
+.tweets-list:hover {
+  background-color: rgb(255, 185, 56);
 }
 
 .tweets-top {

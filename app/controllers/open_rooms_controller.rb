@@ -6,6 +6,19 @@ class OpenRoomsController < ApplicationController
     @open_rooms = OpenRoom.joins(:open_messages).includes(:users, :open_messages).order("open_messages.id DESC")
   end
 
+  # チームタグによるルーム検索
+  def search
+    @open_rooms = OpenRoom.joins(:open_messages).includes(:users, :open_messages).order("open_messages.id DESC")
+    if params[:fan_team_id] != ""
+      @fan_team = FanTeam.find(params[:fan_team_id])
+      @search_rooms = @open_rooms.select do |r|
+        r.fan_teams.include?(@fan_team)
+      end
+    else
+      render :index
+    end
+  end
+
   def new
     @open_room = OpenRoomTeam.new
   end
@@ -47,19 +60,6 @@ class OpenRoomsController < ApplicationController
       redirect_to open_room_path(@open_room.id)
     else
       render :edit
-    end
-  end
-
-  # チームタグによるルーム検索
-  def search
-    @open_rooms = OpenRoom.joins(:open_messages).includes(:users, :open_messages).order("open_messages.id DESC")
-    if params[:fan_team_id] != ""
-      @fan_team = FanTeam.find(params[:fan_team_id])
-      @search_rooms = @open_rooms.select do |r|
-        r.fan_teams.include?(@fan_team)
-      end
-    else
-      render :index
     end
   end
 

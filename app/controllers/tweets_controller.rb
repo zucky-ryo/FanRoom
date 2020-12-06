@@ -1,10 +1,27 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:all, :search]
 
+  # フォローしているユーザーの投稿一覧
   def index
     user_ids = current_user.followings.ids
     user_ids.push(current_user.id)
     @tweets = Tweet.where(user_id: user_ids).limit(50).includes(:user).order(created_at: "DESC")
+  end
+
+  # 全ユーザーの投稿一覧
+  def all
+    @tweets = Tweet.limit(50).includes(:user).order(created_at: "DESC")
+  end
+
+  # 全ユーザー中、検索に一致するユーザーの投稿一覧
+  def search
+    if params[:fan_team_id] != ""
+      @fan_team = FanTeam.find(params[:fan_team_id])
+      user_ids = @fan_team.users.ids
+      @tweets = Tweet.where(user_id: user_ids).limit(50).includes(:user).order(created_at: "DESC")
+    else
+      redirect_to all_tweets_path
+    end
   end
 
   def new
@@ -20,18 +37,11 @@ class TweetsController < ApplicationController
     end
   end
 
-  def all
-    @tweets = Tweet.limit(50).includes(:user).order(created_at: "DESC")
+  def show
+    @tweet = Tweet.find(params[:id])
   end
 
-  def search
-    if params[:fan_team_id] != ""
-      @fan_team = FanTeam.find(params[:fan_team_id])
-      user_ids = @fan_team.users.ids
-      @tweets = Tweet.where(user_id: user_ids).limit(50).includes(:user).order(created_at: "DESC")
-    else
-      redirect_to all_tweets_path
-    end
+  def delete
   end
 
   private
