@@ -25,15 +25,15 @@
     <% end %>
     <div class="tweet-comment-new">
       <p class="tweet-comment-new-title" id="tweet-comment-btn">このツイートにコメントする</p>
-      <form class="tweet-comment-form" id="comment-form">
-        <textarea></textarea>
-        <input type="submit">
-      </form>
+      <%= form_with model: @comment, url: tweet_comments_path(@tweet.id), class:"tweet-comment-form", id:"comment-form" do |f| %>
+        <%= f.text_area :content, placeholder:"投稿にコメントしよう！", maxlength:"1000" %>
+        <%= f.submit '送信' %>
+      <% end %>
     </div>
   </div>
   <div class="tweet-show-bottom">
     <h2 class="tweet-comment-title">コメント</h1>
-    <ul class="tweet-comment-lists">
+    <ul class="tweet-comment-lists" id="tweet-comments">
       <li class="tweet-comment-list">
         <div class="tweet-comment-top">
           <p class="tweet-comment-user">suzuki</p>
