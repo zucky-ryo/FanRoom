@@ -6,5 +6,6 @@ class UsersController < ApplicationController
     # フォロー、フォロワーを新しい順に表示させる
     @followings = @user.followings.includes(:relationships).order("relationships.created_at DESC")
     @followers = @user.followers.includes(:relationships).order("relationships.created_at DESC")
+    @tweets = @user.tweets.includes(:user)
   end
 end

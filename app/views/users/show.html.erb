@@ -50,58 +50,21 @@
 </div>
 
 <%# ユーザーの投稿一覧部分 %>
+<h1 class="user-tweets-top">
+  <%= "#{@user.nickname}さんの投稿一覧" %>
+  <% if @user == current_user %>
+    <%= link_to '投稿', new_tweet_path, class:"tweet-new" %>
+  <% end %>
+</h1>
 <div class="user-tweets">
-  <h1 class="user-tweets-top">
-    <%= "#{@user.nickname}さんの投稿一覧" %>
-  </h1>
   <ul class="user-tweets-lists">
-    <li class="user-tweets-list">
-      <div class="user-tweets-top-wrap">
-        <p class="user-tweets-name">
-          <%= @user.nickname %>
-        </p>
-        <p class="user-tweets-date">2020/10/20</p>
-      </div>
-      <img src="" alt="" class="usertweets-image">
-      <p class="user-tweets-text">
-        aaaaaaa
-        aaaaaaaaaaaa
-        aaaaa
-      </p>
-    </li>
-    <li class="user-tweets-list">
-      <div class="tweets-top">
-        <p class="tweets-user">suzuki</p>
-        <p class="tweets-date">2020/10/22</p>
-      </div>
-      <img src="" alt="" class="tweets-image">
-      <p class="tweets-text">
-        aaaaaaaaaaa
-        aaaaaaaaaaaaaaaaaa
-      </p>
-    </li>
-    <li class="user-tweets-list">
-      <div class="tweets-top">
-        <p class="tweets-user">yamada</p>
-        <p class="tweets-date">2020/10/24</p>
-      </div>
-      <img src="" alt="" class="tweets-image">
-      <p class="tweets-text">
-        aaaaaaaaaaaaaaaaaa
-        aaaaaaaaaaa
-      </p>
-    </li>
-    <li class="user-tweets-list">
-      <div class="tweets-top">
-        <p class="tweets-user">sato</p>
-        <p class="tweets-date">2020/10/26</p>
-      </div>
-      <img src="" alt="" class="tweets-image">
-      <p class="tweets-text">
-        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        aaaaaaaaaaaaaaaaaa
-      </p>
-    </li>
+    <% if @tweets.length != 0 %>
+      <%= render partial: "tweets/tweet", collection: @tweets %>
+    <% elsif @user == current_user %>
+      <p class="user-tweets-none">お気に入りの画像や動画を投稿してみましょう！</p>
+    <% else %>
+      <p class="user-tweets-none"><%= @user.nickname %>さんの投稿はまだありません</p>
+    <% end %>
   </ul>
 </div>
 
