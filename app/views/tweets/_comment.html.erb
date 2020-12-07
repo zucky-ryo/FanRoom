@@ -1,0 +1,15 @@
+<li class="tweet-comment-list">
+  <div class="tweet-comment-top">
+    <%= link_to comment.user.nickname, user_path(comment.user.id), class: "tweet-comment-user" %>
+    <% if comment.created_at.strftime("%Y/%m/%d") == Date.today.strftime("%Y/%m/%d") %>
+      <p class="tweet-comment-date">Today<%= comment.created_at.strftime(" %-H:%M") %></p>
+    <% else %>
+      <p class="tweet-comment-date"><%= comment.created_at.strftime("%Y/%m/%d %-H:%M") %></p>
+    <% end %>
+  </div>
+  <div class="tweet-comment-main">
+    <p class="tweet-comment-content">
+      <%= comment.content %>
+    </p>
+  </div>
+</li>

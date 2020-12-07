@@ -7,14 +7,15 @@
   <p>お気に入りの画像や動画を投稿しよう！</p>
 </div>
 
-<%# 公開チャットルーム説明部分 %>
+<%# 各機能説明部分 %>
 <div class="top-main">
+  <%# 公開チャットルーム説明部分 %>
   <div class="top-open-room">
     <h2 class="top-open-title">公開チャット</h2>
     <div class="top-open-index-wrap">
       <h3>公開チャットルームに参加しよう！</h3>
       <div class="top-open-index-main">
-        <%= image_tag "open-index.png", class:"open-index" %>
+        <%= image_tag "open-index.png", class:"open-index-img" %>
         <div class="open-index-content">
           <div class="open-first-content">
             <p>ルーム一覧から</p>
@@ -42,7 +43,85 @@
             <p>チャットを覗いてみよう！</p>
           </div>
         </div>
-        <%= image_tag "open-show.png", class:"open-show" %>
+        <%= image_tag "open-show.png", class:"open-show-img" %>
+      </div>
+    </div>
+  </div>
+
+  <%# プライベートチャットルーム説明部分 %>
+  <div class="top-private-room">
+    <h2 class="top-private-title">プライベートチャット</h2>
+    <div class="top-user-show-wrap">
+      <h3>ユーザーをフォローしよう！</h3>
+      <div class="top-user-show-main">
+        <%= image_tag "user-show.png", class:"user-show-img" %>
+        <div class="user-show-content">
+          <div class="user-show-first-content">
+            <p>ユーザーをフォローして</p>
+            <p>メールボタンからチャットを</p>
+            <p>送信してみよう！！</p>
+          </div>
+          <div class="user-show-second-content">
+            <p>既に2人のルームがあれば</p>
+            <p>そのルームに移動するよ！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="top-private-index-wrap">
+      <h3>チャットルームを作成しよう！</h3>
+      <div class="top-private-index-main">
+        <div class="private-index-content">
+          <div class="private-index-first-content">
+            <p>参加チャットから</p>
+            <p>ルーム作成ボタンを押して</p>
+            <p>作ってみよう！！</p>
+          </div>
+          <div class="private-index-second-content">
+            <p>友達だけのルームで</p>
+            <p>盛り上がろう！</p>
+          </div>
+        </div>
+        <%= image_tag "private-index.png", class:"private-index-img" %>
+      </div>
+    </div>
+  </div>
+
+  <%# 画像・動画投稿説明部分 %>
+  <div class="top-tweet-room">
+    <h2 class="top-tweet-title">ツイート投稿</h2>
+    <div class="top-tweet-index-wrap">
+      <h3>お気に入りのツイートを見つけよう！</h3>
+      <div class="top-tweet-index-main">
+        <%= image_tag "tweet-index.png", class:"tweet-index-img" %>
+        <div class="tweet-index-content">
+          <div class="tweet-first-content">
+            <p>投稿一覧の中から</p>
+            <p>お気に入りのツイートを</p>
+            <p>探してみよう！！</p>
+          </div>
+          <div class="tweet-second-content">
+            <p>共有したいものがあれば</p>
+            <p>自分でも投稿してみよう！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="top-tweet-show-wrap">
+      <h3>ツイートにコメントを付けよう！</h3>
+      <div class="top-tweet-show-main">
+        <div class="tweet-show-content">
+          <div class="tweet-show-first-content">
+            <p>気になったら</p>
+            <p>ツイートにコメントを</p>
+            <p>送ってみよう！！</p>
+          </div>
+          <div class="tweet-show-second-content">
+            <p>コメントを送って</p>
+            <p>盛り上がろう！</p>
+          </div>
+        </div>
+        <%= image_tag "tweet-show.png", class:"tweet-show-img" %>
       </div>
     </div>
   </div>

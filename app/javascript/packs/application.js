@@ -15,6 +15,7 @@ require("../private_room/index")
 require("../private_room/show")
 require("../tweet/index")
 require("../tweet/new")
+require("../tweet/show")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

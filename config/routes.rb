@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: "top#index"
   resources :users, only: :show
   resources :relationships, only: [:create, :destroy]
-  resources :open_rooms, except: [:delete] do
+  resources :open_rooms, except: [:destroy] do
     resources :open_messages, only: :create
     member do
       post "join"
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get "search"
     end
   end
-  resources :private_rooms, except: [:delete] do
+  resources :private_rooms, except: [:destroy] do
     resources :private_messages, only: :create
     member do
       post "add_member"
@@ -26,7 +26,8 @@ Rails.application.routes.draw do
       post "simple_chat"
     end
   end
-  resources :tweets, only: [:index, :new, :create] do
+  resources :tweets, except: [:edit, :update] do
+    resources :comments, only: :create
     collection do
       get "all"
       get "search"

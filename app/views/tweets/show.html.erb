@@ -1,0 +1,50 @@
+<%= render "shared/header" %>
+
+<div class="tweet-show">
+  <%# 投稿詳細 %>
+  <div class="tweet-show-top">
+    <%= link_to "#{@tweet.user.nickname}さんの投稿", user_path(@tweet.user.id), class:"tweet-show-title" %>
+    <% if @tweet.created_at.strftime("%Y/%m/%d") == Date.today.strftime("%Y/%m/%d") %>
+      <p class="tweet-show-date">Today<%= @tweet.created_at.strftime(" %-H:%M") %></p>
+    <% else %>
+      <p class="tweet-show-date"><%= @tweet.created_at.strftime("%Y/%m/%d %-H:%M") %></p>
+    <% end %>
+    <div class="tweet-show-main">
+      <div class="tweet-show-image">
+        <% if @tweet.image.content_type.include?("mp4") %>
+          <video src="<%= rails_blob_path(@tweet.image) %>" type="video/mp4" controls></video>
+        <% else %>
+          <img src="<%= rails_blob_path(@tweet.image) %>">
+        <% end %>
+      </div>
+      <p class="tweet-show-text"><%= @tweet.text %></p>
+    </div>
+    <% if @tweet.user == current_user %>
+    <div class="tweet-delete-btn">
+      <%= link_to '投稿を削除', tweet_path(@tweet.id), method: :delete, data: { confirm: "この投稿を削除します" } %>
+    </div>
+    <% end %>
+    <%# コメント送信フォーム %>
+    <div class="tweet-comment-new">
+      <p class="tweet-comment-new-title" id="tweet-comment-btn">このツイートにコメントする</p>
+      <%= form_with model: @comment, url: tweet_comments_path(@tweet.id), class:"tweet-comment-form", id:"comment-form" do |f| %>
+        <%= f.text_area :content, placeholder:"投稿にコメントしよう！", maxlength:"1000" %>
+        <%= f.submit '送信' %>
+      <% end %>
+    </div>
+  </div>
+  
+  <%# 投稿に寄せられたコメント一覧 %>
+  <div class="tweet-show-bottom">
+    <h2 class="tweet-comment-title">コメント</h1>
+    <ul class="tweet-comment-lists" id="tweet-comments">
+      <% if @comments.length == 0 %>
+        <p class="tweet-comment-none" id="tweet-comment-sample">コメントを送信してみよう！</p>
+      <% else %>
+        <%= render partial: 'comment', collection: @comments %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
