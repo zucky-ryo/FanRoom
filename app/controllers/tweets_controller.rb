@@ -37,12 +37,14 @@ class TweetsController < ApplicationController
     end
   end
 
+  # 詳細ページ内でコメントの非同期通信を実装
   def show
     @tweet = Tweet.find(params[:id])
     @comment = Comment.new
     @comments = @tweet.comments.includes(:user).order(created_at: "DESC")
   end
 
+  # 投稿削除時に、ActiveStorageにある紐づいた画像・動画も削除
   def destroy
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments.includes(:user).order(created_at: "DESC")

@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
+  # チャネルを利用してコメントの送信を行う
   def create
     @comment = Comment.new(comment_params)
     if @comment.save

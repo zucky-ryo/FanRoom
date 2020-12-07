@@ -1,6 +1,7 @@
 <%= render "shared/header" %>
 
 <div class="tweet-show">
+  <%# 投稿詳細 %>
   <div class="tweet-show-top">
     <%= link_to "#{@tweet.user.nickname}さんの投稿", user_path(@tweet.user.id), class:"tweet-show-title" %>
     <% if @tweet.created_at.strftime("%Y/%m/%d") == Date.today.strftime("%Y/%m/%d") %>
@@ -23,6 +24,7 @@
       <%= link_to '投稿を削除', tweet_path(@tweet.id), method: :delete, data: { confirm: "この投稿を削除します" } %>
     </div>
     <% end %>
+    <%# コメント送信フォーム %>
     <div class="tweet-comment-new">
       <p class="tweet-comment-new-title" id="tweet-comment-btn">このツイートにコメントする</p>
       <%= form_with model: @comment, url: tweet_comments_path(@tweet.id), class:"tweet-comment-form", id:"comment-form" do |f| %>
@@ -31,6 +33,8 @@
       <% end %>
     </div>
   </div>
+  
+  <%# 投稿に寄せられたコメント一覧 %>
   <div class="tweet-show-bottom">
     <h2 class="tweet-comment-title">コメント</h1>
     <ul class="tweet-comment-lists" id="tweet-comments">

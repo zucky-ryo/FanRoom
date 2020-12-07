@@ -1,6 +1,7 @@
 $(function(){
   const urlPath = location.pathname;
   if (urlPath.match(/tweets/) && urlPath.match(/\d/) == null) {
+    // 画像・動画選択時に、プレビューを表示
     const imageList = $('#image-list');
     $('#tweet_image').change((e) => {
       if (imageList.find('img') || imageList.find('video')){
