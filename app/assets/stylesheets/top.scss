@@ -71,7 +71,7 @@
   display: flex;
 }
 
-.open-index {
+.open-index-img {
   width: 50%;
   margin: 20px 10px;
   display: block;
@@ -137,14 +137,6 @@
   display: flex;
 }
 
-.open-show {
-  width: 50%;
-  margin: 20px 10px;
-  display: block;
-  border-radius: 10px;
-  border: solid 1px rgb(212, 212, 212);
-}
-
 .open-show-content {
   width: 50%;
   margin: 20px 0;
@@ -180,4 +172,320 @@
     font-size: 23px;
     text-align: center;
   }
+}
+
+.open-show-img {
+  width: 50%;
+  margin: 20px 10px;
+  display: block;
+  border-radius: 10px;
+  border: solid 1px rgb(212, 212, 212);
+}
+
+.top-private-room {
+  padding: 0 20px 30px;
+  background-color: rgb(255, 243, 232);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-private-title {
+  width: 80%;
+  padding: 6px;
+  margin: 30px 0 15px 0;
+  background-color: rgb(253, 206, 119);
+  border: solid 1px rgb(255, 166, 0);
+  border-radius: 50px;
+  color: rgb(0, 0, 85);
+  text-align: center;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.top-user-show-wrap {
+  margin-top: 5px;
+  background-color: rgb(252, 252, 186);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    padding: 5px 30px;
+    margin: 20px 0 2px;
+    background-color: white;
+    border: solid 1px rgb(172, 172, 172);
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.top-user-show-main {
+  display: flex;
+}
+
+.user-show-img {
+  width: 50%;
+  margin: 20px 10px;
+  display: block;
+  border-radius: 10px;
+  border: solid 1px rgb(212, 212, 212);
+}
+
+.user-show-content {
+  width: 50%;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user-show-first-content {
+  width: 80%;
+  padding: 8px;
+  margin: 12px 0;
+  background-color: rgb(202, 255, 255);
+  border: solid 2px rgb(183, 255, 255);
+  border-radius: 10px;
+  p {
+    color: rgb(255, 123, 0);
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.user-show-second-content {
+  width: 65%;
+  padding: 5px;
+  margin-top: 20px;
+  background-color: yellow;
+  border: solid 1px rgb(235, 235, 235);
+  p {
+    color: black;
+    font-size: 23px;
+    text-align: center;
+  }
+}
+
+.top-private-index-wrap {
+  margin-top: 20px;
+  background-color: rgb(252, 252, 186);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    padding: 5px 30px;
+    margin: 20px 0 2px;
+    background-color: white;
+    border: solid 1px rgb(172, 172, 172);
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.top-private-index-main {
+  display: flex;
+}
+
+.private-index-content {
+  width: 50%;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.private-index-first-content {
+  width: 80%;
+  padding: 8px;
+  margin: 20px 0;
+  background-color: yellow;
+  border: solid 2px rgb(255, 238, 0);
+  border-radius: 10px;
+  p {
+    color: rgb(255, 123, 0);
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.private-index-second-content {
+  width: 65%;
+  padding: 5px;
+  margin-top: 20px;
+  background-color: rgb(202, 255, 255);
+  border: solid 1px rgb(235, 235, 235);
+  p {
+    color: black;
+    font-size: 23px;
+    text-align: center;
+  }
+}
+
+.private-index-img {
+  width: 50%;
+  margin: 20px 10px;
+  display: block;
+  border-radius: 10px;
+  border: solid 1px rgb(212, 212, 212);
+}
+
+.top-tweet-room {
+  padding: 0 20px 30px;
+  background-color: rgb(232, 238, 255);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-tweet-title {
+  width: 80%;
+  padding: 6px;
+  margin: 30px 0 15px 0;
+  background-color: rgb(119, 253, 130);
+  border: solid 1px rgb(0, 204, 17);
+  border-radius: 50px;
+  color: rgb(0, 0, 85);
+  text-align: center;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.top-tweet-index-wrap {
+  margin-top: 5px;
+  background-color: rgb(252, 252, 186);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    padding: 5px 30px;
+    margin: 20px 0 2px;
+    background-color: white;
+    border: solid 1px rgb(172, 172, 172);
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.top-tweet-index-main {
+  display: flex;
+}
+
+.tweet-index-img {
+  width: 50%;
+  margin: 20px 10px;
+  display: block;
+  border-radius: 10px;
+  border: solid 1px rgb(212, 212, 212);
+}
+
+.tweet-index-content {
+  width: 50%;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tweet-first-content {
+  width: 80%;
+  padding: 8px;
+  margin: 12px 0;
+  background-color: rgb(202, 255, 255);
+  border: solid 2px rgb(183, 255, 255);
+  border-radius: 10px;
+  p {
+    color: rgb(255, 123, 0);
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.tweet-second-content {
+  width: 65%;
+  padding: 5px;
+  margin-top: 20px;
+  background-color: yellow;
+  border: solid 1px rgb(235, 235, 235);
+  p {
+    color: black;
+    font-size: 23px;
+    text-align: center;
+  }
+}
+
+.top-tweet-show-wrap {
+  margin-top: 20px;
+  background-color: rgb(252, 252, 186);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    padding: 5px 30px;
+    margin: 20px 0 2px;
+    background-color: white;
+    border: solid 1px rgb(172, 172, 172);
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.top-tweet-show-main {
+  display: flex;
+}
+
+.tweet-show-content {
+  width: 50%;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tweet-show-first-content {
+  width: 80%;
+  padding: 8px;
+  margin: 20px 0;
+  background-color: yellow;
+  border: solid 2px rgb(255, 238, 0);
+  border-radius: 10px;
+  p {
+    color: rgb(255, 123, 0);
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.tweet-show-second-content {
+  width: 65%;
+  padding: 5px;
+  margin-top: 20px;
+  background-color: rgb(202, 255, 255);
+  border: solid 1px rgb(235, 235, 235);
+  p {
+    color: black;
+    font-size: 23px;
+    text-align: center;
+  }
+}
+
+.tweet-show-img {
+  width: 50%;
+  margin: 20px 10px;
+  display: block;
+  border-radius: 10px;
+  border: solid 1px rgb(212, 212, 212);
 }
