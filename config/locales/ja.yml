@@ -8,6 +8,8 @@ ja:
         name: ルーム名
       tweet:
         image: 画像または動画
+      comment:
+        content: コメント
 
   activemodel:
     attributes:
