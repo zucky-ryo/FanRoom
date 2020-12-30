@@ -49,11 +49,7 @@ describe TweetsController, type: :request do
       get tweet_path(@tweet.id)
       expect(response.status).to eq 200
     end
-    it 'showアクションにリクエストするとレスポンスにルーム名が存在する' do
-      get tweet_path(@tweet.id)
-      expect(response.body).to include @tweet.image.name
-    end
-    it 'showアクションにリクエストするとレスポンスにルーム内のメッセージが存在する' do
+    it 'showアクションにリクエストするとレスポンスに作成済みツイートの画像または動画が存在する' do
       get tweet_path(@tweet.id)
       expect(response.body).to include @tweet.image.name
     end
